@@ -1,0 +1,24 @@
+\name{verhulst.update}
+\alias{verhulst.update}
+\title{the Verhulst model function - Update Y}
+\usage{
+  verhulst.update(Y, a, k)
+}
+\arguments{
+  \item{Y}{: state variable Y(t=day)}
+
+  \item{a}{: growth rate}
+
+  \item{k}{: capacity}
+}
+\value{
+  state variable at Y(t=day+1)
+}
+\description{
+  the Verhulst model function - Update Y
+}
+\seealso{
+  \code{\link{verhulst.model}} for the intergration loop
+  function of the Verhulst model.
+}
+

@@ -1,0 +1,26 @@
+\name{maize.weather}
+\alias{maize.weather}
+\title{Reading Weather data function for MAIZE model (West of France Weather)}
+\usage{
+  maize.weather(working.year = NA, working.site = NA,
+    weather_all = weather_FranceWest)
+}
+\arguments{
+  \item{working.year}{: year for the subset of weather data
+  (default=NA : all the year)}
+
+  \item{working.site}{: site for the subset of weather data
+  (default=NA : all the site)}
+
+  \item{weather_all}{: weather data base
+  (default=weather_FranceWest)}
+}
+\value{
+  data.frame with daily weather data for one or several
+  site(s) and for one or several year(s)
+}
+\description{
+  Reading Weather data function for MAIZE model (West of
+  France Weather)
+}
+

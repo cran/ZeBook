@@ -1,0 +1,32 @@
+\name{epirice.model}
+\alias{epirice.model}
+\title{The EPIRICE model function}
+\usage{
+  epirice.model(param, weather, sdate = 1, ldate = 120,
+    H0 = 600)
+}
+\arguments{
+  \item{param}{: a vector of parameters}
+
+  \item{weather}{: weather data.frame for one single year}
+
+  \item{sdate}{: date to begin simulation (day of year)
+  (default 1)}
+
+  \item{ldate}{: date to end simulation (day of year)
+  (default 120)}
+
+  \item{H0}{: initial number of plant's healthy
+  sites(default 600)}
+}
+\value{
+  data.frame with daily state variable
+}
+\description{
+  \strong{Model description.} Adapted from Savary et
+  al.(2012)
+}
+\seealso{
+  \code{\link{epirice.multi.simul}}
+}
+
