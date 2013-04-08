@@ -20,7 +20,7 @@
 
   \item{Crop}{: value for crop decision (1 or 0)}
 
-  \item{Herb}{: value for herbicide traitment decision (1
+  \item{Herb}{: value for herbicide treatment decision (1
   or 0)}
 
   \item{param}{: vector of the 16 parameters}

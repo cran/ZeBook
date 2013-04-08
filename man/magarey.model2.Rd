@@ -7,8 +7,8 @@
 \arguments{
   \item{param}{: parameters}
 
-  \item{T}{: input variable. Either a scalar ou a vector
-  (for a weather serie).}
+  \item{T}{: input variable. Either a scalar or a vector
+  (for a weather series).}
 }
 \value{
   W : Wetness duration (hour). Either a scalar or a vector

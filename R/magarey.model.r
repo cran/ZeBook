@@ -1,6 +1,6 @@
 ################################################################################
 # "Working with dynamic models for agriculture"
-# R script for pratical work
+# R script for practical work
 # Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
 # Francois Brun (ACTA)
 # version : 2010-08-09
@@ -8,7 +8,7 @@
 ################################ FUNCTIONS #####################################
 #' @title The Magarey model
 #' @description Generic model of infection for foliar diseases caused by fungi (from Magarey et al.,2005).
-#' @param T : input variable. Either a scalar or a vector (for a weather serie).
+#' @param T : input variable. Either a scalar or a vector (for a weather series).
 #' @param Tmin : parameter of minimal temperature for infection (degC)
 #' @param Topt : parameter of optimal temperature for infection (degC)
 #' @param Tmax : parameter of maximal temperature for infection (degC)
@@ -16,6 +16,7 @@
 #' @param Wmax : parameter of maximal wetness duration for infection (hour)
 #' @return Wetness duration (W, hour). Either a scalar or a vector depending on T. 
 #' @export
+#' @examples plot(1:35, magarey.model (1:35,7, 18, 30, 10, 42), type="l", xlab="T", ylab="W")
 magarey.model<-function(T, Tmin, Topt, Tmax, Wmin, Wmax){
     fT<-((Tmax-T)/(Tmax-Topt))*(((T-Tmin)/(Topt-Tmin))^((Topt-Tmin)/(Tmax-Topt)))
 	W <- Wmin/fT
@@ -25,7 +26,7 @@ magarey.model<-function(T, Tmin, Topt, Tmax, Wmin, Wmax){
 #' @title The Magarey model, taking in argument a vector of param
 #' @description Generic model of infection for foliar diseases caused by fungi (from Magarey et al.,2005).
 #' @param param : parameters 
-#' @param T : input variable. Either a scalar ou a vector (for a weather serie). 
+#' @param T : input variable. Either a scalar or a vector (for a weather series). 
 #' @return W : Wetness duration (hour). Either a scalar or a vector depending on T.  
 #' @export
 magarey.model2<-function(T, param){
@@ -56,7 +57,7 @@ row.names(param)<-c("nominal","binf","bsup")
 return(as.matrix(param))
 }
 ################################################################################
-#' @title Wrapping fonction to run an virtual experimental design for Magarey model
+#' @title Wrapping function to run an virtual experimental design for Magarey model
 #' @param X : parameter matrix
 #' @param T : input variable, temperature
 #' @param all : if you want a matrix combining X and output

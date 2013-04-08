@@ -1,6 +1,6 @@
 \name{maize.simule}
 \alias{maize.simule}
-\title{Wrapping fonction to run an virtual experimental design for maize model}
+\title{Wrapping function to run an virtual experimental design for maize model}
 \usage{
   maize.simule(X, weather, sdate, ldate, all = FALSE)
 }
@@ -14,13 +14,13 @@
   \item{ldate}{: last date}
 
   \item{all}{: if you want a matrix combining X and output
-  (delfaut = FALSE)}
+  (default = FALSE)}
 }
 \value{
   matrix with maximum biomass for each parameter vector
 }
 \description{
-  Wrapping fonction to run an virtual experimental design
+  Wrapping function to run an virtual experimental design
   for maize model
 }
 

@@ -1,6 +1,6 @@
 \name{maize.model2}
 \alias{maize.model2}
-\title{The basic Maize model function with a litle change to use with maize.simul}
+\title{The basic Maize model function with a little change to use with maize.simul}
 \usage{
   maize.model2(param, weather, sdate, ldate)
 }
@@ -17,7 +17,11 @@
   data.frame with daily TT, LAI,B
 }
 \description{
-  The basic Maize model function with a litle change to use
-  with maize.simul
+  The basic Maize model function with a little change to
+  use with maize.simul
+}
+\examples{
+weather = maize.weather(working.year=2010, working.site=30,weather_all=weather_EuropeEU)
+maize.model2(maize.define.param()["nominal",], weather, sdate=100, ldate=250)
 }
 

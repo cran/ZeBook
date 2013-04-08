@@ -1,8 +1,8 @@
 ################################################################################
 # "Working with dynamic models for agriculture"
-# R script for pratical work
+# R script for practical work
 # Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
-# Francois Brun (ACTA), Sylvain Toulet (INRA, stage 2012)
+# Francois Brun (ACTA), Sylvain Toulet (INRA, internship 2012)
 # version : 2012-04-23
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
@@ -88,7 +88,7 @@ watbal.define.param = function()
 	MUF = c(0.096, 0.06, 0.11);
 	# DC :  Drainage coefficient (mm^3 mm^-3)
 	DC = c(0.55, 0.25, 0.75);
-	# z : rootzone depth (mm)
+	# z : root zone depth (mm)
 	z = c(400, 300, 600);
 	# CN : Runoff curve number
 	CN = c(65, 15, 90); # nominal = 58 in the description ??
@@ -98,7 +98,7 @@ watbal.define.param = function()
 	param = as.matrix(param)
   attributes(param)$description=t(t(c("WHC"="Water Holding Capacity of the soil (cm3.cm-3)",
   "MUF" = "Water Uptake coefficient (mm^3 mm^-3)", "DC" = "Drainage coefficient (mm3.mm-3)",
-  "z" = "rootzone depth (mm)",  "CN" = "Runoff curve number")))
+  "z" = "root zone depth (mm)",  "CN" = "Runoff curve number")))
 	return(param)
 }
 

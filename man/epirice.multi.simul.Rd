@@ -1,6 +1,6 @@
 \name{epirice.multi.simul}
 \alias{epirice.multi.simul}
-\title{Wrapping fonction to run an virtual experimental design for EPIRICE model}
+\title{Wrapping function to run an virtual experimental design for EPIRICE model}
 \usage{
   epirice.multi.simul(param, multi.simul, all = FALSE)
 }
@@ -11,13 +11,13 @@
   variable : site, year and date of transplantation.}
 
   \item{all}{: if you want a matrix combining multi.simul
-  and output (delfaut = FALSE)}
+  and output (default = FALSE)}
 }
 \value{
   matrix with AUDPC for each input vector
 }
 \description{
-  Wrapping fonction to run an virtual experimental design
+  Wrapping function to run an virtual experimental design
   for EPIRICE model
 }
 \seealso{

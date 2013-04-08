@@ -6,7 +6,7 @@
 }
 \arguments{
   \item{T}{: input variable. Either a scalar or a vector
-  (for a weather serie).}
+  (for a weather series).}
 
   \item{Tmin}{: parameter of minimal temperature for
   infection (degC)}
@@ -30,5 +30,8 @@
 \description{
   Generic model of infection for foliar diseases caused by
   fungi (from Magarey et al.,2005).
+}
+\examples{
+plot(1:35, magarey.model (1:35,7, 18, 30, 10, 42), type="l", xlab="T", ylab="W")
 }
 

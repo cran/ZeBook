@@ -13,13 +13,13 @@
   Jan-1997 Aug-2009, thus only 12 complete years of data
   were available for analysis involving precipitation(1997
   to 2009). It cover main part of West part of France
-  defined as a rectangle. The dataset was extrated from the
-  NASA Langley Research Center POWER Project which provide
-  agroclimatology dataset (Chandler et al., 2004). It was
-  funded through the NASA Earth Science Directorate Applied
-  Science Program This climate datasetcontains daily
-  estimates of precipitation, mean, minimum and maximum
-  temperature, relative humidity, dew point, solar
+  defined as a rectangle. The dataset was extracted from
+  the NASA Langley Research Center POWER Project which
+  provide agroclimatology dataset (Chandler et al., 2004).
+  It was funded through the NASA Earth Science Directorate
+  Applied Science Program This climate dataset contains
+  daily estimates of precipitation, mean, minimum and
+  maximum temperature, relative humidity, dew point, solar
   radiation and wind speed with global coverage at one
   degree resolution (approximately 111 km at the equator).
   The NASA POWER agroclimatology data are derived from

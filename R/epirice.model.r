@@ -6,38 +6,6 @@
 # version : 2012-05-11
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
-#' @title Correction coefficient for infection - age (epirice)
-#' @description TODO
-#' @param age : day after crop establishment
-#' @return scalar for correction coefficient
-fRcA<-function(age){
-graphRcA=matrix(c(0.00, 1.00, 5.00, 1.00, 10.0, 1.00, 15.0, 0.9, 20.0, 0.8, 25.0, 0.7,
- 30.0, 0.64, 35.0, 0.59, 40.0, 0.53,45.0, 0.43, 50.0, 0.32, 55.0, 0.22, 
- 60.0, 0.16, 65.0, 0.09, 70.0, 0.03, 75.0, 0.02, 80.0, 0.02, 85.0, 0.02, 
- 90.0, 0.01, 95.0, 0.01, 100, 0.01, 105, 0.01, 110, 0.01, 115, 0.01, 120, 0.01),
- ncol=2, byrow=TRUE,  dimnames = list(NULL,c("day", "RcA")))
-return(approx(graphRcA[,"day"], graphRcA[,"RcA"], age, method="linear")$y)
-}
-
-#' @title Correction coefficient for infection - temperature (epirice)
-#' @description TODO
-#' @param T : mean temperature (celsius)
-#' @return scalar for correction coefficient
-fRcT<-function(T){
-graphRcT=matrix(c(0.0, 0.0, 10.0, 0.00, 15.0, 0.5, 20.0, 1.00, 25.0, 0.6, 30.0, 0.2, 35.0,
-0.05, 40.0, 0.01, 45.0, 0.00, 60, 0), ncol=2, byrow=TRUE,  dimnames = list(NULL,c("T", "RcT")))
-return(approx(graphRcT[,"T"], graphRcT[,"RcT"], T, method="linear")$y)
-}
-
-#' @title Correction coefficient for infection - Relative humidity and rain (epirice)
-#' @description TODO
-#' @param RH : relative humidity (percent)
-#' @param RAIN : precipitation (mm)
-#' @return scalar for correction coefficient
-fRcW<-function(RH,RAIN){
-    if(RH>=90 | RAIN>=5) {return(1)} else {return(0)}
-    }
-
 #' @title The EPIRICE model function
 #' @description \strong{Model description.} Adapted from Savary et al.(2012)
 #' @param param : a vector of parameters
@@ -66,6 +34,21 @@ RcA=param["RcA"]
 a=param["a"]
 k=param["k"]
 SenescType=param["SenescType"]
+
+# Correction coefficient for infection - age (epirice)
+fRcA<-function(age){graphRcA=matrix(c(0.00, 1.00, 5.00, 1.00, 10.0, 1.00, 15.0, 0.9, 20.0, 0.8, 25.0, 0.7,
+ 30.0, 0.64, 35.0, 0.59, 40.0, 0.53,45.0, 0.43, 50.0, 0.32, 55.0, 0.22,
+ 60.0, 0.16, 65.0, 0.09, 70.0, 0.03, 75.0, 0.02, 80.0, 0.02, 85.0, 0.02,
+ 90.0, 0.01, 95.0, 0.01, 100, 0.01, 105, 0.01, 110, 0.01, 115, 0.01, 120, 0.01),
+ ncol=2, byrow=TRUE,  dimnames = list(NULL,c("day", "RcA")))
+return(approx(graphRcA[,"day"], graphRcA[,"RcA"], age, method="linear")$y)}
+# Correction coefficient for infection - temperature (epirice)
+fRcT<-function(T){graphRcT=matrix(c(0.0, 0.0, 10.0, 0.00, 15.0, 0.5, 20.0, 1.00, 25.0, 0.6, 30.0, 0.2, 35.0,
+0.05, 40.0, 0.01, 45.0, 0.00, 60, 0), ncol=2, byrow=TRUE,  dimnames = list(NULL,c("T", "RcT")))
+return(approx(graphRcT[,"T"], graphRcT[,"RcT"], T, method="linear")$y)
+}
+# Correction coefficient for infection - Relative humidity and rain (epirice)
+fRcW<-function(RH,RAIN){if(RH>=90 | RAIN>=5) {return(1)} else {return(0)}   }
 
     # Initialize variables
     # states variables, as vectors initialized to NA
@@ -102,7 +85,7 @@ SenescType=param["SenescType"]
         if (day==(sdate+EODate)) {Starter=1} else {Starter=0}
         # Calculate rates of change of state variables
         RG = RRG*H[day]*(1 - (TS[day]/Sx))
-        # We propose a simplification of the cohorte formalisme for RTransfer and RRemoval
+        # We propose a simplification of the cohort formalism for RTransfer and RRemoval
         RTransfer = L[day]/p
         RRemoval = II[day]/i
  
@@ -117,7 +100,7 @@ SenescType=param["SenescType"]
         dTOTDIS = dL + dII + dP
         dTS = dH + dTOTDIS
         
-        # Uptade state variables
+        # Update state variables
         H[day+1]= H[day] + dH
         S[day+1]= S[day] + dS
         L[day+1]= L[day] + dL
@@ -132,10 +115,10 @@ SenescType=param["SenescType"]
     return(data.frame(day=sdate:ldate,DACE=((sdate:ldate)-sdate),H=H[sdate:ldate],L=L[sdate:ldate],II=II[sdate:ldate],P=P[sdate:ldate],TS=TS[sdate:ldate],TOTDIS=TOTDIS[sdate:ldate],severity=severity[sdate:ldate]))
 }
 ################################################################################
-#' @title Wrapping fonction to run an virtual experimental design for EPIRICE model
+#' @title Wrapping function to run an virtual experimental design for EPIRICE model
 #' @param param : a vector of parameters
 #' @param multi.simul : matrix of n row definition of input variable : site, year and date of transplantation.
-#' @param all : if you want a matrix combining multi.simul and output (delfaut = FALSE)
+#' @param all : if you want a matrix combining multi.simul and output (default = FALSE)
 #' @return matrix with AUDPC for each input vector
 #' @seealso \code{\link{epirice.model}}
 #' @export

@@ -1,6 +1,6 @@
 ################################################################################
 # "Working with dynamic models for agriculture"
-# R script for pratical work
+# R script for practical work
 # Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
 # Francois Brun (ACTA)
 # version : 2012-04-23
@@ -11,7 +11,7 @@
 #' @param a : growth rate
 #' @param k : capacity
 #' @return state variable at Y(t=day+1)
-#' @seealso \code{\link{verhulst.model}} for the intergration loop function of the Verhulst model.
+#' @seealso \code{\link{verhulst.model}} for the integration loop function of the Verhulst model.
 #' @export
 verhulst.update<-function(Y,a,k)
 {

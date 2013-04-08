@@ -1,6 +1,6 @@
 \name{magarey.simule}
 \alias{magarey.simule}
-\title{Wrapping fonction to run an virtual experimental design for Magarey model}
+\title{Wrapping function to run an virtual experimental design for Magarey model}
 \usage{
   magarey.simule(X, T, all = FALSE)
 }

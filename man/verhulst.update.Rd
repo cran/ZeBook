@@ -18,7 +18,7 @@
   the Verhulst model function - Update Y
 }
 \seealso{
-  \code{\link{verhulst.model}} for the intergration loop
+  \code{\link{verhulst.model}} for the integration loop
   function of the Verhulst model.
 }
 

@@ -1,6 +1,6 @@
 ################################################################################
 # "Working with dynamic models for agriculture"
-# R script for pratical work
+# R script for practical work
 # Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
 # Francois Brun (ACTA)
 # version : 2010-08-09
@@ -14,7 +14,7 @@
 #' @param DSBa : deep seedbank after tillage (grains/m2) - value for year
 #' @param Soil : value for soil decision (1 or 0)
 #' @param Crop : value for crop decision (1 or 0)
-#' @param Herb : value for herbicide traitment decision (1 or 0)
+#' @param Herb : value for herbicide treatment decision (1 or 0)
 #' @param param : vector of the 16 parameters
 #' @return a vector with values of state variables for year+1
 #' @export
@@ -33,8 +33,8 @@ chsi=param["chsi.1"]*Soil+param["chsi.0"]*(1-Soil)
 Smax=param["Smax.1"]*Crop+param["Smax.0"]*(1-Crop)
 alpha=Smax/160000
 
-# Uptade State variable
-# Evolution of weed grain stoch (death, germination)
+# Update State variable
+# Evolution of weed grain stock (death, germination)
 # in surface soil
 SSBb1=(1-param["mu"])*(SSBa-d)+param["v"]*(1-param["phi"])*S
 # in depth soil
@@ -90,7 +90,7 @@ weed.model=function(param, weed.deci) {
 
   # Integration loop
   for (year in 1:(duration)) {
-    # Uptade state variables
+    # Update state variables
     Z=weed.update(d[year], S[year], SSBa[year], DSBa[year],weed.deci$Soil[year], weed.deci$Crop[year], weed.deci$Herb[year], param)
     d[year+1]=Z[1]
     S[year+1]=Z[2]
@@ -104,7 +104,7 @@ return(data.frame(year=0:duration,d=d,S=S,SSBa=SSBa,DSBa=DSBa,Yield=Yield))
 }
 
 ################################################################################
-#' @title Wrapping fonction to run an virtual experimental design for weed model
+#' @title Wrapping function to run an virtual experimental design for weed model
 #' @param X : parameter matrix
 #' @param weed.deci : decisions table for Soil, Crop et Herbicide 
 #' @return matrix with Yield for year 3 for each parameter vector

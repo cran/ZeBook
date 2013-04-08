@@ -1,13 +1,13 @@
 #' @name weather_SouthAsia
-#' @title Weather serie for South of Asia from NASA POWER agroclimatology
+#' @title Weather series for South of Asia from NASA POWER agroclimatology
 #' @description This contemporary daily climate dataset for South Asia
 #' covers the period 1st January 1997 to 31 December 2008
 #' with 12 complete years of data with precipitation.
 #' It cover a part of South Asia (North-East of India, Bangladesh, Myanmar, Neapal) with an elevation less than 2500m.
-#' The dataset was was extrated from the NASA Langley Research Center POWER Project which provide
+#' The dataset was extracted from the NASA Langley Research Center POWER Project which provide
 #' agroclimatology dataset (Chandler et al., 2004). 
 #' It was funded through the NASA Earth Science Directorate Applied Science Program
-#' This climate datasetcontains daily estimates of precipitation, mean, minimum and
+#' This climate dataset contains daily estimates of precipitation, mean, minimum and
 #' maximum temperature, relative humidity, dew point, solar radiation
 #' and wind speed with global coverage at one degree resolution
 #' (approximately 111 km at the equator).

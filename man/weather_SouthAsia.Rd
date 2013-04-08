@@ -1,7 +1,7 @@
 \docType{data}
 \name{weather_SouthAsia}
 \alias{weather_SouthAsia}
-\title{Weather serie for South of Asia from NASA POWER agroclimatology}
+\title{Weather series for South of Asia from NASA POWER agroclimatology}
 \format{a \code{RangedData} instance, 1 row per day.}
 \source{
   \url{http://power.larc.nasa.gov/} and
@@ -14,11 +14,11 @@
   with 12 complete years of data with precipitation. It
   cover a part of South Asia (North-East of India,
   Bangladesh, Myanmar, Neapal) with an elevation less than
-  2500m. The dataset was was extrated from the NASA Langley
+  2500m. The dataset was extracted from the NASA Langley
   Research Center POWER Project which provide
   agroclimatology dataset (Chandler et al., 2004). It was
   funded through the NASA Earth Science Directorate Applied
-  Science Program This climate datasetcontains daily
+  Science Program This climate dataset contains daily
   estimates of precipitation, mean, minimum and maximum
   temperature, relative humidity, dew point, solar
   radiation and wind speed with global coverage at one

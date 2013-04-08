@@ -1,18 +1,23 @@
 ################################################################################
 # "Working with dynamic models for agriculture"
-# R script for pratical work
 # Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
 # Francois Brun (ACTA)
-# version : 2012-05-01
-# Model described in the book, Appendix. Models used as illustrative examples: description and R code
+# version : 2013-03-25
 ################################ FUNCTIONS #####################################
 #' @title Computation of classical evaluation criteria function
+#' @description This function is depreciated and will be remove from the package in future versions. Please use goodness.of.fit
 #' @param Ypred : prediction values from the model
 #' @param Yobs : observed values
 #' @param draw.plot : draw evaluation plot
 #' @return data.frame with the different evaluation criteria
 #' @export
+#' @examples
+#' # observed and simulated values
+#' obs<-c(78,110,92,75,110,108,113,155,150)
+#' sim<-c(126,126,126,105,105,105,147,147,147)
+#' evaluation.criteria(sim,obs,draw.plot=TRUE)
 evaluation.criteria=function(Ypred,Yobs,draw.plot=FALSE){
+  warning("this function is depreciated, please use now goodness.of.fit")
   #Yobs is the vector of observed values
   #Ypred is the vector of predicted values
   # we keep only Ypred and Yobs where both are not NA
@@ -66,16 +71,15 @@ evaluation.criteria=function(Ypred,Yobs,draw.plot=FALSE){
 
 
   if( draw.plot){
-    par(mfrow=c(3,1), cex=1, mar=c(4.5, 4.2, 0.2, 1.2), cex.main=0.75 )
+    par(mfrow=c(3,1), cex=1, mar=c(4.5, 4.2, 0.5, 1.2), cex.main=0.75 )
     # observation versus prediction
-    plot(Ypred,Yobs)
-    minmaxB<-min(max(Ypred),max(Yobs))
-    lines(c(0,minmaxB),c(0,minmaxB))
+    plot(Ypred,Yobs, xlim=range(c(Ypred,Yobs)),ylim=range(c(Ypred,Yobs)))
+    abline(b=1,a=0)
     # residus versus prediction
     plot(Ypred,Yobs-Ypred)
-    lines(c(0,max(Ypred)),c(0,0))
+    abline(a=0,b=0)
     # Plot the MSE decomposition using the instruction below
-    barplot(c("MSE"=MSE,"Bias^2"=bias.Squared,"SDSD"=SDSD,"LCS"=LCS),main="decomposition of MSE", ylab="(unit biomass)^2")
+    barplot(c("MSE"=MSE,"Bias^2"=bias.Squared,"SDSD"=SDSD,"LCS"=LCS),main="decomposition of MSE", ylab="unit^2")
   }
 
 

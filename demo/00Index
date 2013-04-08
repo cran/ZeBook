@@ -1,0 +1,22 @@
+ch03R_maize_parallel                  ch03. R introduction. Example of Improving performance with parallel code for maize.model
+ch05USA_Weed                          ch05. Uncertainty and Sensitivity analysis. Example of Monte Carlo, Morris, Fast, Sobol and ANOVA for weed.model. Be carefull running all this script can be very long (up to 30 min).
+ch05USA_Magarey                       ch05. Uncertainty and Sensitivity analysis. Example on magarey.model
+ch08DLM_WheatYieldGreece              ch08. Data Assimilation. Example of Dynamic Linear Model (DLM) for analyzing yield time series.
+ch08DLM_CarbonSoil                    ch08. Data Assimilation. Example of Dynamic Linear Model (DLM) with carbonsoil.model.
+ch07Bayes_Carbon                      ch07. Bayes. Example with carbonsoil.model
+ch10maize1data                        ch10. Study Case Maize. Exploration of data.
+ch10maize2evaluation                  ch10. Study Case Maize. Evaluation.
+ch10maize3uncertainty                 ch10. Study Case Maize. Uncertainty analysis (up to 20 min).
+ch10maize4sensitivity                 ch10. Study Case Maize. Sensitivity analysis (up to 40 min).
+ch10maize5aparameterOLS_gradient      ch10. Study Case Maize. Parameter calibration with OLS and gradient method (up to 10 min)
+ch10maize5bparameterOLS_simplex       ch10. Study Case Maize. Parameter calibration with OLS simplex method (up to 120 min)
+ch10maize5cparameterConcL             ch10. Study Case Maize. Parameter calibration with concentrated likelihood simplex method (up to 120 min)
+ch10maize6aMSEP_OLS                   ch10. Study Case Maize. Estimation of MSEP by cross-validation - OLS (up to 120 min)
+ch10maize6bMSEP_ConcL                 ch10. Study Case Maize. Estimation of MSEP by cross-validation - concentrated likelihood (up to 120 min)
+ch10maize7scenario                    ch10. Study Case Maize. Utilization on scenario (few minutes)
+ch10maizeB5aBayesEstimRUE             ch10. Study Case Maize. Calibrate the model using a Bayesian approach, using MCMC - only RUE (up to few hours)
+ch10maizeB5bBayesEstimAllparam        ch10. Study Case Maize. Calibrate the model using a Bayesian approach, using MCMC - all parameters (up to 4-5 days for n=30000 and 2 chains)
+ch10maizeB7BayesUncertainty           ch10. Study Case Maize. Use the calibrated model to answer the initial question. Include the uncertainty represented in the posterior distribution from the Bayesian approach You must run ch10maizeB5bBayesEstimAllparam before or adapt both script (up to few
+                                      minutes).
+ch10maizeB7Bayes_functionsMH          ch10. Study Case Maize. Load specific functions for bayesian. No calculation.
+ch10maizeS8DataAssimilation           ch10. Study Case Maize. Data assimilation using DLM (few minutes)
