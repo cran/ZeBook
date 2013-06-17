@@ -1,6 +1,6 @@
 \name{maize_cir_rue_ear.model}
 \alias{maize_cir_rue_ear.model}
-\title{The Maize model function with CumInt, RUE and ear growth}
+\title{The Maize model with temperature dependent RUE, CumInt and ear growth}
 \usage{
   maize_cir_rue_ear.model(Tbase, RUE_max, K, alpha, LAImax,
     TTM, TTL, weather, sdate, ldate)
@@ -36,6 +36,7 @@
   data.frame with daily TT, LAI,B
 }
 \description{
-  The Maize model function with CumInt, RUE and ear growth
+  The Maize model with temperature dependent RUE, CumInt
+  and ear growth
 }
 

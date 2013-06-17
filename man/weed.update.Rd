@@ -1,6 +1,6 @@
 \name{weed.update}
 \alias{weed.update}
-\title{The weed update function}
+\title{The Weed model - calculate change for one year}
 \usage{
   weed.update(d, S, SSBa, DSBa, Soil, Crop, Herb, param)
 }

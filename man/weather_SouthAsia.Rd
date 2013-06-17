@@ -1,7 +1,7 @@
 \docType{data}
 \name{weather_SouthAsia}
 \alias{weather_SouthAsia}
-\title{Weather series for South of Asia from NASA POWER agroclimatology}
+\title{Weather series for southern Asia from NASA POWER agroclimatology}
 \format{a \code{RangedData} instance, 1 row per day.}
 \source{
   \url{http://power.larc.nasa.gov/} and

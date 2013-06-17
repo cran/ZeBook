@@ -1,7 +1,10 @@
 ################################################################################
-# David Makowski, 2013-03-04
+# "Working with dynamic models for agriculture"
+# Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
+# Francois Brun (ACTA)
+# version : David Makowski, 2013-03-04
+############################### MAIN PROGRAM ###################################
 library(dlm)
-
 set.seed(3)
 
 ################################################################################

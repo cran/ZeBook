@@ -1,7 +1,7 @@
 \docType{data}
 \name{weather_FranceWest}
 \alias{weather_FranceWest}
-\title{Weather serie for West of France from NASA POWER agroclimatology}
+\title{Weather series for western France from NASA POWER agroclimatology}
 \format{a \code{RangedData} instance, 1 row per day.}
 \source{
   \url{http://power.larc.nasa.gov/}

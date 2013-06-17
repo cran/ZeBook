@@ -1,6 +1,6 @@
 \name{maize.model}
 \alias{maize.model}
-\title{The basic Maize model function}
+\title{The basic Maize model.}
 \usage{
   maize.model(Tbase, RUE, K, alpha, LAImax, TTM, TTL,
     weather, sdate, ldate)
@@ -72,6 +72,13 @@
 }
 \examples{
 weather = maize.weather(working.year=2010, working.site=30,weather_all=weather_EuropeEU)
-maize.model(Tbase=7, RUE=1.85, K=0.7, alpha=0.00243, LAImax=7, TTM=1200, TTL=700, weather, sdate=100, ldate=250)
+maize.model(Tbase=7, RUE=1.85, K=0.7, alpha=0.00243, LAImax=7, TTM=1200, TTL=700,
+  weather, sdate=100, ldate=250)
+}
+\seealso{
+  \code{\link{maize.model2}},
+  \code{\link{maize.define.param}},
+  \code{\link{maize.simule}}, \code{\link{maize.multisy}},
+  \code{\link{maize.simule240}},\code{\link{maize.simule_multisy240}}
 }
 

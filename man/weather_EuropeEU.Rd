@@ -1,8 +1,16 @@
 \docType{data}
 \name{weather_EuropeEU}
 \alias{weather_EuropeEU}
-\title{Weather serie for EuropeEU from NASA POWER agroclimatology}
-\format{a \code{RangedData} instance, 1 row per day.}
+\title{Weather serie for Europe EU from NASA POWER agroclimatology}
+\format{a \code{RangedData} instance, 1 row per day.
+SRAD     daily Insolation Incident On A Horizontal Surface (MJ/m^2/day)
+T2M      Average Air Temperature At 2 m Above The Surface Of The Earth (degrees C)
+TMIN     Minimum Air Temperature At 2 m Above The Surface Of The Earth (degrees C)
+TMAX     Maximum Air Temperature At 2 m Above The Surface Of The Earth (degrees C)
+RH2M     Relative Humidity At 2 m (%)
+TDEW     Dew/Frost Point Temperature At 2 m (degrees C)
+RAIN     Average Precipitation (mm/day)
+WIND     Wind Speed At 10 m Above The Surface Of The Earth (m/s)}
 \source{
   \url{http://power.larc.nasa.gov/} and
   \url{http://asterweb.jpl.nasa.gov/gdem.asp} and

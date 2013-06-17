@@ -1,6 +1,6 @@
 \name{verhulst.update}
 \alias{verhulst.update}
-\title{the Verhulst model function - Update Y}
+\title{The Verhulst (logistic) model - calculate change for one day}
 \usage{
   verhulst.update(Y, a, k)
 }
@@ -15,7 +15,8 @@
   state variable at Y(t=day+1)
 }
 \description{
-  the Verhulst model function - Update Y
+  The Verhulst (logistic) model - calculate change for one
+  day
 }
 \seealso{
   \code{\link{verhulst.model}} for the integration loop

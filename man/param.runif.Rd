@@ -1,6 +1,6 @@
 \name{param.runif}
 \alias{param.runif}
-\title{Building a random plan with uniform distribution}
+\title{Generate a random plan as a data frame. Columns are parameters. Values have uniform distribution}
 \usage{
   param.runif(model.factors, N)
 }

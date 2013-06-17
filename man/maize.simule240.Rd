@@ -1,6 +1,6 @@
 \name{maize.simule240}
 \alias{maize.simule240}
-\title{Wrapping function to run maize model on a matrix of parameter (virtual design) and give Biomass at day240}
+\title{Wrapper function to run Maize model multiple times for multiple sets of parameter values and give Biomass at day240}
 \usage{
   maize.simule240(X, weather, sdate, ldate, all = FALSE)
 }
@@ -21,12 +21,14 @@
   parameters of X
 }
 \description{
-  Wrapping function to run maize model on a matrix of
-  parameter (virtual design) and give Biomass at day240
+  Wrapper function to run Maize model multiple times for
+  multiple sets of parameter values and give Biomass at
+  day240
 }
 \examples{
 sy="18-2006"
-weather = maize.weather(working.year=strsplit(sy,"-")[[1]][2], working.site=strsplit(sy,"-")[[1]][1],weather_all=weather_EuropeEU)
+weather = maize.weather(working.year=strsplit(sy,"-")[[1]][2],
+  working.site=strsplit(sy,"-")[[1]][1],weather_all=weather_EuropeEU)
 maize.simule240(maize.define.param(),weather, sdate=100, ldate=250, all=FALSE)
 }
 

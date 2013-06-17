@@ -1,0 +1,22 @@
+\name{carcass.EMI.model2}
+\alias{carcass.EMI.model2}
+\title{The Carcass model function for use with carcass.EMI.simule}
+\usage{
+  carcass.EMI.model2(param, energie, PVi, duration)
+}
+\arguments{
+  \item{param}{: a vector of parameters}
+
+  \item{energie}{: Metabolizable energy available}
+
+  \item{PVi}{: initial liveweight}
+
+  \item{duration}{: duration of simulation}
+}
+\value{
+  data.frame with PV,ProtC,ProtNC,LipC,LipNC
+}
+\description{
+  see carcass.EMI.model for model description.
+}
+

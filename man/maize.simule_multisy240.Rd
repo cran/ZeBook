@@ -1,6 +1,6 @@
 \name{maize.simule_multisy240}
 \alias{maize.simule_multisy240}
-\title{Wrapping function to run maize model and compute mean Biomass at day240 for a list of site-year, for a matrix of parameter (design).}
+\title{Wrapper function to run Maize model for multiple sets of parameter values (virtual design) and multiple sets of input variables (site-year) and give Biomass at day240}
 \usage{
   maize.simule_multisy240(X, liste_sy, sdate, ldate,
     all = FALSE)
@@ -22,11 +22,12 @@
   of parameters of X
 }
 \description{
-  Wrapping function to run maize model and compute mean
-  Biomass at day240 for a list of site-year, for a matrix
-  of parameter (design).
+  Wrapper function to run Maize model for multiple sets of
+  parameter values (virtual design) and multiple sets of
+  input variables (site-year) and give Biomass at day240
 }
 \examples{
-maize.simule_multisy240(maize.define.param(),c("18-2006","64-2004") , sdate=100, ldate=250, all=FALSE)
+maize.simule_multisy240(maize.define.param(),c("18-2006","64-2004"),
+  sdate=100, ldate=250, all=FALSE)
 }
 

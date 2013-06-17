@@ -1,6 +1,6 @@
 \name{maize.define.param}
 \alias{maize.define.param}
-\title{Define parameter values of the maize model}
+\title{Define values of the parameters for the Maize model}
 \usage{
   maize.define.param()
 }
@@ -8,6 +8,6 @@
   matrix with parameter values (nominal, binf, bsup)
 }
 \description{
-  Define parameter values of the maize model
+  Define values of the parameters for the Maize model
 }
 

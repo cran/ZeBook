@@ -1,6 +1,6 @@
 \name{weed.simule}
 \alias{weed.simule}
-\title{Wrapping function to run an virtual experimental design for weed model}
+\title{Wrapper function to run the Weed model multiple times (for multiple sets of inputs)}
 \usage{
   weed.simule(X, weed.deci)
 }
@@ -14,7 +14,7 @@
   matrix with Yield for year 3 for each parameter vector
 }
 \description{
-  Wrapping function to run an virtual experimental design
-  for weed model
+  Wrapper function to run the Weed model multiple times
+  (for multiple sets of inputs)
 }
 

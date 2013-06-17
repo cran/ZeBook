@@ -2,8 +2,8 @@ Package: ZeBook
 Type: Package
 Title: ZeBook Working with dynamic models for agriculture and
         environment
-Version: 0.4
-Date: 2013-04-08
+Version: 0.5
+Date: 2013-06-17
 Author: Francois Brun (ACTA), David Makowski (INRA), Daniel Wallach
         (INRA), James W. Jones (U.of Florida).
 Maintainer: Francois Brun <francois.brun@acta.asso.fr>
@@ -13,17 +13,22 @@ Description: R package accompanying the book Working with dynamic
         Francois Brun (ACTA), in preparation for June 2013.
 License: LGPL-3
 LazyData: yes
-Depends: triangle, R(>= 2.10.0)
+Depends: triangle, deSolve, R(>= 2.10.0)
 LazyDataCompression: xz
-Collate: 'AIC.r' 'epirice.model.r' 'evaluation.criteria.r'
-        'goodness.of.fit.r' 'grain.filling_data.r' 'magarey.model.r'
-        'maize.data_EuropeEU.r' 'maize.model.r' 'sample.r'
+Collate: 'AIC.r' 'carbon.model.r' 'carcass.EMI.model.r'
+        'carcass.model.r' 'carcass_data.r' 'chicks_data.r'
+        'cotton.model.r' 'epirice.model.r' 'evaluation.criteria.r'
+        'exponential.model.r' 'goodness.of.fit.r'
+        'lactation.calf.model.r' 'lactation.machine.model.r'
+        'magarey.model.r' 'maize.data_EuropeEU.r' 'maize.model.r'
+        'population.age.model.r' 'prey.predator.model.r' 'sample.r'
+        'seedweight.data_data.r' 'seedweight.model.r'
         'Sunflower_Phomopsis_data.r' 'verhulst.model.r'
         'watbal.model.r' 'watbal.simobsdata.r'
         'weather_EuropeEU_data.r' 'weather_FranceWest_data.r'
         'weather_SouthAsia_data.r' 'weed.model.r' 'Wheat_GPC_data.r'
         'WheatYieldGreece_data.r' 'ZeBook.r'
-Packaged: 2013-04-09 16:28:24 UTC; brun
+Packaged: 2013-06-17 18:51:20 UTC; f.brun
 NeedsCompilation: no
 Repository: CRAN
-Date/Publication: 2013-04-09 22:25:38
+Date/Publication: 2013-06-18 00:10:49

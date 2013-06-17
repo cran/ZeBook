@@ -23,7 +23,7 @@ magarey.model<-function(T, Tmin, Topt, Tmax, Wmin, Wmax){
 	W[W>Wmax | T<Tmin | T>Tmax]<-Wmax 
 	return(W)
 }
-#' @title The Magarey model, taking in argument a vector of param
+#' @title The Magarey model, taking a vector of parameters as argument
 #' @description Generic model of infection for foliar diseases caused by fungi (from Magarey et al.,2005).
 #' @param param : parameters 
 #' @param T : input variable. Either a scalar or a vector (for a weather series). 
@@ -35,29 +35,50 @@ magarey.model2<-function(T, param){
 
 
 ################################################################################
-#' @title Define parameter values of the model function
+#' @title Define values of the parameters for the Magarey model
+#' @param species : name of a species. By default, value for an "unkown" species are given. Other possibility are "G.citricarpa" or "Kaki.fungus"
 #' @return matrix with parameter values (nominal, binf, bsup)
+#' @examples magarey.define.param(species="G.citricarpa")
+#' magarey.define.param(species="Kaki.fungus")
 #' @export
-magarey.define.param <- function()
+magarey.define.param <- function(species="unkown")
 {
 # nominal, binf, bsup
 # Tmin  : the minimal temperature for infection (°C)
-Tmin = c(NA, 0.8, 1.2)
 # Topt  : the optimal temperature for infection (°C)
-Topt = c(NA, 20, 30)
 # Tmax  : the maximal temperature for infection (°C)
-Tmax = c(NA, 24, 36)
 # Wmin : minimal wetness duration for infection (hour)
-Wmin = c(NA, 38.4, 57.6)
 # Wmax : maximal wetness duration for infection (hour)
-Wmax = c(NA, 115.2, 172.8)
 
+if (species=="unkown"){
+Tmin = c(NA, 0.8, 1.2)
+Topt = c(NA, 20, 30)
+Tmax = c(NA, 24, 36)
+Wmin = c(NA, 38.4, 57.6)
+Wmax = c(NA, 115.2, 172.8)
+print("See help for values for other species.")
+}
+# pycnidiospores of the fungus Guignardia citricarpa Kiely by EFSA (2008).
+if (species=="G.citricarpa"){
+Tmin = c(NA, 10, 15)
+Topt = c(NA, 25, 30)
+Tmax = c(NA, 32, 35)
+Wmin = c(NA, 12, 14)
+Wmax = c(NA, 35, 48)}
+# Kaki fungus.
+if (species=="Kaki.fungus"){
+Tmin = c(7, 2, 13)
+Topt = c(18, 14, 26)
+Tmax = c(30, 27, 35)
+Wmin = c(10, 5, 17)
+Wmax = c(42, 18, 90)}
+print(paste("parameter values for species : ",species))
 param<-data.frame(Tmin,Topt,Tmax, Wmin, Wmax)
 row.names(param)<-c("nominal","binf","bsup")
 return(as.matrix(param))
 }
 ################################################################################
-#' @title Wrapping function to run an virtual experimental design for Magarey model
+#' @title Wrapper function to run the Magarey model multiple times (for multiple sets of inputs)
 #' @param X : parameter matrix
 #' @param T : input variable, temperature
 #' @param all : if you want a matrix combining X and output
@@ -69,7 +90,5 @@ Y <- apply(X,1,function(param) magarey.model2(T, param))
 if(all) Y = cbind(X,W = Y)
 return(as.matrix(Y))
 }
-
-
 ################################################################################
 # End of file

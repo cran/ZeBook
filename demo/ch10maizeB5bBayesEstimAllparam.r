@@ -39,7 +39,7 @@ coeff.teta0<-0.75
 MetropolisHastings_Gibbs(param.apriori=maize.define.param(),param.opti=param.opti,Nb.iterations=n_iter,LAI.sigma=1,B.sigma=10,coeff.teta0=coeff.teta0,list_sy=list_n_sy,data=maize.data_EuropeEU,sdate,ldate, NomFichierSortie="mcmc_allp_2")
 ############## analyse CHAINES
 NomFichierSortie<-c("mcmc_allp_1.csv","mcmc_allp_2.csv")
-l<-Lecture.chaines(NomChaines=NomFichierSortie,CheminChaines="")
+l<-Lecture.chaines(NomChaines=NomFichierSortie)
 MCMC.result1<-l$MCMC.result1
 MCMC.result2<-l$MCMC.result2
 N = dim(MCMC.result1)[1]

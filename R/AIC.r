@@ -4,7 +4,7 @@
 # Francois Brun (ACTA)
 # version : 2013-03-25
 ################################################################################
-#' @title Calculation of AIC, Akaike's Information Criterion, given a vector of observation, a vector of prediction and number of parameter.
+#' @title Calculate AIC, Akaike's Information Criterion
 #' @description This function calculate AIC criterion given a vector of observation, a vector of prediction and number of parameter.
 #' Note that number of parameters should include variance.
 #' AICcomplete is the same calculation of the AIC function of R (AICcomplete = n*log(RSS/n)+n+n*log(2*pi)+2*p, with p including variance).

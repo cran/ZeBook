@@ -41,7 +41,7 @@ MetropolisHastings_Gibbs(param.apriori=maize.define.param(),param.opti=param.opt
 ############## analyse CHAINES
 
 NomFichierSortie<-c("mcmc_2.csv","mcmc_1.csv")
-l<-Lecture.chaines(NomChaines=NomFichierSortie,CheminChaines="")
+l<-Lecture.chaines(NomChaines=NomFichierSortie)
 MCMC.result1<-l$MCMC.result1
 MCMC.result2<-l$MCMC.result2
 N = dim(MCMC.result1)[1]

@@ -1,6 +1,6 @@
 \name{maize.simule}
 \alias{maize.simule}
-\title{Wrapping function to run an virtual experimental design for maize model}
+\title{Wrapper function to run Maize model for multiple sets of parameter values}
 \usage{
   maize.simule(X, weather, sdate, ldate, all = FALSE)
 }
@@ -20,7 +20,7 @@
   matrix with maximum biomass for each parameter vector
 }
 \description{
-  Wrapping function to run an virtual experimental design
-  for maize model
+  Wrapper function to run Maize model for multiple sets of
+  parameter values
 }
 

@@ -1,6 +1,6 @@
 \name{maize_cir.model}
 \alias{maize_cir.model}
-\title{the Maize model function with additional state variable CumInt}
+\title{The Maize model with additional state variable CumInt}
 \usage{
   maize_cir.model(Tbase, RUE, K, alpha, LAImax, TTM, TTL,
     weather, sdate, ldate)
@@ -35,7 +35,6 @@
   data.frame with daily TT, LAI,B
 }
 \description{
-  the Maize model function with additional state variable
-  CumInt
+  The Maize model with additional state variable CumInt
 }
 

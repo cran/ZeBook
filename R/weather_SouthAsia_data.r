@@ -1,5 +1,5 @@
 #' @name weather_SouthAsia
-#' @title Weather series for South of Asia from NASA POWER agroclimatology
+#' @title Weather series for southern Asia from NASA POWER agroclimatology
 #' @description This contemporary daily climate dataset for South Asia
 #' covers the period 1st January 1997 to 31 December 2008
 #' with 12 complete years of data with precipitation.

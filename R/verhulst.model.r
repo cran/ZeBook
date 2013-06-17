@@ -6,7 +6,7 @@
 # version : 2012-04-23
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################################################################
-#' @title the Verhulst model function - Update Y
+#' @title The Verhulst (logistic) model - calculate change for one day
 #' @param Y : state variable Y(t=day)
 #' @param a : growth rate
 #' @param k : capacity
@@ -17,22 +17,22 @@ verhulst.update<-function(Y,a,k)
 {
 	# Calculate the rates of state variables (dZ)
 	dY = a*Y*(1-Y/k)
-
   # Update the state variables Z
 	Y1=Y+dY
-	
   # Return Y1=Y(t+1)
 	return(Y1)
 }
 
 ################################################################################
-#' @title the Verhulst model function - integration loop
+#' @title The Verhulst (logistic) model - calculate daily values over designated time period
 #' @param a : growth rate
 #' @param k : capacity
 #' @param Y0 : initial condition
 #' @param duration : duration of simulation
 #' @return data.frame with daily Y
 #' @seealso \code{\link{verhulst.update}} for the update function of the Verhulst model.
+#' @examples plot(verhulst.model(0.08,100,1,100), type="l", ylim=c(0,115),
+#'    xlab="day", ylab="Y, population density",lwd=2)
 #' @export
 verhulst.model<-function(a,k,Y0,duration)
 {

@@ -27,10 +27,11 @@ for(sy in list_n_sy){
 }
 
 # 4) Evaluation - plot observation versus simulation for biomass at day=240
+dev.new()
 par(mfrow=c(1,1))
 plot(simobs240$B,simobs240$Bobs, xlim=range(c(simobs240$B,simobs240$Bobs)),ylim=range(c(simobs240$B,simobs240$Bobs)), ylab="Bobs", xlab="B")
 abline(a=0,b=1)
-
+dev.new()
 plot(simobs240$B,simobs240$Bobs-simobs240$B, xlab="predicted values",ylab="residuals")
 abline(a=0,b=0)
 

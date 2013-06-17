@@ -1,6 +1,6 @@
 \name{watbal.define.param}
 \alias{watbal.define.param}
-\title{Define parameter values of the Water Balance model}
+\title{Define values of the parameters for the WaterBalance model}
 \usage{
   watbal.define.param()
 }
@@ -8,6 +8,7 @@
   matrix with parameter values (nominal, binf, bsup)
 }
 \description{
-  Define parameter values of the Water Balance model
+  Define values of the parameters for the WaterBalance
+  model
 }
 

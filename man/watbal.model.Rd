@@ -1,6 +1,6 @@
 \name{watbal.model}
 \alias{watbal.model}
-\title{Water Balance model function - Integration loop}
+\title{WaterBalance model - calculate soil water over designated time period}
 \usage{
   watbal.model(param, weather, WP, FC, WAT0 = NA)
 }
@@ -22,6 +22,7 @@
   -)
 }
 \description{
-  Water Balance model function - Integration loop
+  WaterBalance model - calculate soil water over designated
+  time period
 }
 

@@ -6,7 +6,7 @@
 # version : 2010-08-09
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
-#' @title Building a random plan with uniform distribution
+#' @title Generate a random plan as a data frame. Columns are parameters. Values have uniform distribution
 #' @description according to minimal and maximal values defined in a model.factors matrix 
 #' @param model.factors : matrix defining minimal (binf) and maximal values (bsup) for a set of p parameters
 #' @param N : size of sample
@@ -23,7 +23,7 @@ param.runif=function(model.factors,N){
 }
 # end of function
 ################################################################################
-#' @title Building a random plan with a triangle distribution
+#' @title Generate a random plan as a data frame. Columns are parameters. Values have triangle distribution
 #' @description according to nominal, minimal and maximal values defined in a model.factors matrix
 #' @param model.factors : matrix defining nominal, minimal (binf), maximal values (bsup) for a set of p parameters
 #' @param N : size of sample
@@ -42,7 +42,7 @@ param.rtriangle = function(model.factors,N)
 }
 # end of function
 ################################################################################
-#' @title Building the q.arg argument for FAST function
+#' @title Build the q.arg argument for the  FAST function (sensitivity analysis)
 #' @description according to minimal and maximal values defined in a model.factors matrix 
 #' @param model.factors : matrix defining minimal (binf) and maximal values (bsup) for a set of p parameters
 #' @return a list of list
@@ -54,4 +54,4 @@ q.arg.fast.runif=function(model.factors){
   }
   return(q.arg.fast) 
 }
-# end of function 
+# end of function

@@ -6,7 +6,7 @@
 # version : 2012-05-11
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
-#' @title The EPIRICE model function
+#' @title The Epirice model (Disease model for rice)
 #' @description \strong{Model description.} Adapted from Savary et al.(2012)
 #' @param param : a vector of parameters
 #' @param weather : weather data.frame for one single year
@@ -14,7 +14,7 @@
 #' @param ldate : date to end simulation (day of year) (default 120)
 #' @param H0 : initial number of plant's healthy sites(default 600)
 #' @return data.frame with daily state variable
-#' @seealso \code{\link{epirice.multi.simul}}
+#' @seealso \code{\link{epirice.multi.simule}}
 #' @export
 epirice.model<-function(param, weather,sdate=1,ldate=120, H0=600)
 {
@@ -115,32 +115,23 @@ fRcW<-function(RH,RAIN){if(RH>=90 | RAIN>=5) {return(1)} else {return(0)}   }
     return(data.frame(day=sdate:ldate,DACE=((sdate:ldate)-sdate),H=H[sdate:ldate],L=L[sdate:ldate],II=II[sdate:ldate],P=P[sdate:ldate],TS=TS[sdate:ldate],TOTDIS=TOTDIS[sdate:ldate],severity=severity[sdate:ldate]))
 }
 ################################################################################
-#' @title Wrapping function to run an virtual experimental design for EPIRICE model
+#' @title Wrapper function to run Epirice multiple times (for multiple sets of inputs)
 #' @param param : a vector of parameters
-#' @param multi.simul : matrix of n row definition of input variable : site, year and date of transplantation.
-#' @param all : if you want a matrix combining multi.simul and output (default = FALSE)
+#' @param multi.simule : matrix of n row definition of input variable : site, year and date of transplantation.
+#' @param all : if you want a matrix combining multi.simule and output (default = FALSE)
 #' @return matrix with AUDPC for each input vector
 #' @seealso \code{\link{epirice.model}}
 #' @export
-#epirice.multi.simul = function(param,multi.simul){
-#  multi.simul$AUDPC=NA
-#  for (k in 1:dim(multi.simul)[1]){
-#    weather=epirice.weather(working.year=multi.simul[k,"year"], working.site=multi.simul[k,"idsite"])
-#    simul=epirice.model(param, weather,sdate=multi.simul[k,"date_transplantation"],ldate=multi.simul[k,"date_transplantation"]+120,H0=600)
-#    multi.simul$AUDPC[k]=sum(simul$severity,na.rm=TRUE)# percent.day-1
-#    }
-#  return(multi.simul)
-#}
-epirice.multi.simul <- function(param,multi.simul, all=FALSE){
+epirice.multi.simule <- function(param,multi.simule, all=FALSE){
 # output : AUDPC only
-AUDPC <- apply(multi.simul,1,function(v) sum(epirice.model(param, epirice.weather(working.year=v["year"], working.site=v["idsite"]),sdate=v["date_transplantation"],ldate=v["date_transplantation"]+120,H0=600)$severity, na.rm=TRUE))
+AUDPC <- apply(multi.simule,1,function(v) sum(epirice.model(param, epirice.weather(working.year=v["year"], working.site=v["idsite"]),sdate=v["date_transplantation"],ldate=v["date_transplantation"]+120,H0=600)$severity, na.rm=TRUE))
 print(AUDPC)
-if(all) AUDPC = cbind(multi.simul,AUDPC = AUDPC)
+if(all) AUDPC = cbind(multi.simule,AUDPC = AUDPC)
 return(AUDPC)
 }
 
 ################################################################################
-#' @title Define parameter values of the epirice model
+#' @title Define values of the parameters for the Epirice model
 #' @return matrix with parameter values (nominal, binf, bsup)
 #' @export
 epirice.define.param <- function()
@@ -166,7 +157,7 @@ row.names(param)<-c("nominal","binf","bsup")
 return(as.matrix(param))
 }
 ################################################################################
-#' @title Reading Weather data function for EPIRICE (South Asia Weather)
+#' @title Read weather data for Epirice (southern Asia weather)
 #' @param working.year : year for the subset of weather data (default=NA : all the year)
 #' @param working.site : site for the subset of weather data (default=NA : all the site)
 #' @return data.frame with daily weather data for one or several site(s) and for one or several year(s)

@@ -279,13 +279,14 @@ MetropolisHastings_Gibbs<-function(param.apriori=maize.define.param(),param.opti
 #' @param Nomchaines  vecteur contenant le nom des chaines
 #' @param CheminChaines chemin des chaines
 #' @return les chaines
-Lecture.chaines<-function(NomChaines,CheminChaines)
+Lecture.chaines<-function(NomChaines,CheminChaines=NA)
 {
 nb_chaines<-length(NomChaines)
 
 for(i in 1:nb_chaines){
     nom=paste("MCMC.result",i,sep="")
-    nom_fichier=paste(CheminChaines,NomFichierSortie[i],sep="//")
+    if(is.na(CheminChaines)) nom_fichier=NomChaines[i]
+    else nom_fichier=paste(CheminChaines,NomChaines[i],sep="//")
     assign(nom,read.csv(nom_fichier,sep=";"))}
 
   if(nb_chaines==2){

@@ -1,6 +1,6 @@
 \name{verhulst.model}
 \alias{verhulst.model}
-\title{the Verhulst model function - integration loop}
+\title{The Verhulst (logistic) model - calculate daily values over designated time period}
 \usage{
   verhulst.model(a, k, Y0, duration)
 }
@@ -17,7 +17,12 @@
   data.frame with daily Y
 }
 \description{
-  the Verhulst model function - integration loop
+  The Verhulst (logistic) model - calculate daily values
+  over designated time period
+}
+\examples{
+plot(verhulst.model(0.08,100,1,100), type="l", ylim=c(0,115),
+   xlab="day", ylab="Y, population density",lwd=2)
 }
 \seealso{
   \code{\link{verhulst.update}} for the update function of

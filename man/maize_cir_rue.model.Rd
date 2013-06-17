@@ -1,6 +1,6 @@
 \name{maize_cir_rue.model}
 \alias{maize_cir_rue.model}
-\title{The Maize model function with rue (and CumInt)}
+\title{The Maize model with temperature dependent RUE and CumInt}
 \usage{
   maize_cir_rue.model(Tbase, RUE_max, K, alpha, LAImax,
     TTM, TTL, weather, sdate, ldate)
@@ -36,6 +36,6 @@
   data.frame with daily TT, LAI,B
 }
 \description{
-  The Maize model function with rue (and CumInt)
+  The Maize model with temperature dependent RUE and CumInt
 }
 

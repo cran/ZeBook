@@ -1,6 +1,6 @@
 \name{epirice.define.param}
 \alias{epirice.define.param}
-\title{Define parameter values of the epirice model}
+\title{Define values of the parameters for the Epirice model}
 \usage{
   epirice.define.param()
 }
@@ -8,6 +8,6 @@
   matrix with parameter values (nominal, binf, bsup)
 }
 \description{
-  Define parameter values of the epirice model
+  Define values of the parameters for the Epirice model
 }
 

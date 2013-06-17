@@ -1,6 +1,6 @@
 \name{goodness.of.fit}
 \alias{goodness.of.fit}
-\title{Computation of classical evaluation criteria function - NEW}
+\title{Calcule multiple goodness-of-fit criteria}
 \usage{
   goodness.of.fit(Yobs, Ypred, draw.plot = FALSE)
 }
@@ -15,8 +15,7 @@
   data.frame with the different evaluation criteria
 }
 \description{
-  Computation of classical evaluation criteria function -
-  NEW
+  Calcule multiple goodness-of-fit criteria
 }
 \examples{
 # observed and simulated values

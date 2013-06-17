@@ -1,6 +1,6 @@
 \name{watbal.update}
 \alias{watbal.update}
-\title{Water Balance model function - Update}
+\title{WaterBalance model - calculate change in soil water for one day}
 \usage{
   watbal.update(WAT0, RAIN, ETr, param, WP, FC)
 }
@@ -21,6 +21,7 @@
   WAT1 : Water at the beginning of the day+1 (mm).
 }
 \description{
-  Water Balance model function - Update
+  WaterBalance model - calculate change in soil water for
+  one day
 }
 

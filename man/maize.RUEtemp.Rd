@@ -1,6 +1,6 @@
 \name{maize.RUEtemp}
 \alias{maize.RUEtemp}
-\title{Effect of the temperature on RUE for Maize}
+\title{Calculate effect of temperature on RUE for Maize}
 \usage{
   maize.RUEtemp(T, RUE_max, T0, T1, T2, T3)
 }
@@ -21,6 +21,6 @@
   RUE value
 }
 \description{
-  Effect of the temperature on RUE for Maize
+  Calculate effect of temperature on RUE for Maize
 }
 

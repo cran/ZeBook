@@ -1,6 +1,6 @@
 \name{maize.weather}
 \alias{maize.weather}
-\title{Reading Weather data function for MAIZE model (West of France Weather)}
+\title{Read weather data for the Maize model}
 \usage{
   maize.weather(working.year = NA, working.site = NA,
     weather_all = weather_FranceWest)
@@ -20,7 +20,6 @@
   site(s) and for one or several year(s)
 }
 \description{
-  Reading Weather data function for MAIZE model (West of
-  France Weather)
+  Read weather data for the Maize model
 }
 

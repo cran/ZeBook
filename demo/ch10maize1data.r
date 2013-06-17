@@ -30,10 +30,10 @@ summary(maize.data_EuropeEU[maize.data_EuropeEU$day==240,"Bobs"])
 # representation of dynamic variable for the k site-year
 list_k_sy=unique(maize.data_EuropeEU[maize.data_EuropeEU$day!=240,"sy"])
 plot(c(140,240),c(0,4000),type="n",xlab="day of year",ylab="observed biomass")
-null=sapply(list_k_sy, function(sy) lines(maize.data_EuropeEU[maize.data_EuropeEU$sy==sy,c("day","Bobs")],type="b",lwd=2))
+null=sapply(list_k_sy, function(sy) lines(maize.data_EuropeEU[maize.data_EuropeEU$sy==sy,c("day","Bobs")],type="b",lwd=2,pch=which(list_k_sy==sy)))
 
 plot(c(140,240),c(0,8),type="n",xlab="day of year",ylab="observed LAI")
-null=sapply(list_k_sy, function(sy) lines(maize.data_EuropeEU[maize.data_EuropeEU$sy==sy,c("day","LAIobs")],type="b",lwd=2))
+null=sapply(list_k_sy, function(sy) lines(maize.data_EuropeEU[maize.data_EuropeEU$sy==sy,c("day","LAIobs")],type="b",lwd=2,pch=which(list_k_sy==sy)))
 
 # 2/ Exploration of available weather data
 weather_all=weather_EuropeEU[(weather_EuropeEU$WEDAY>=100)&(weather_EuropeEU$WEDAY<=250),]

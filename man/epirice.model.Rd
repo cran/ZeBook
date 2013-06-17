@@ -1,6 +1,6 @@
 \name{epirice.model}
 \alias{epirice.model}
-\title{The EPIRICE model function}
+\title{The Epirice model (Disease model for rice)}
 \usage{
   epirice.model(param, weather, sdate = 1, ldate = 120,
     H0 = 600)
@@ -27,6 +27,6 @@
   al.(2012)
 }
 \seealso{
-  \code{\link{epirice.multi.simul}}
+  \code{\link{epirice.multi.simule}}
 }
 

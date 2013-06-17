@@ -1,6 +1,6 @@
 \name{param.rtriangle}
 \alias{param.rtriangle}
-\title{Building a random plan with a triangle distribution}
+\title{Generate a random plan as a data frame. Columns are parameters. Values have triangle distribution}
 \usage{
   param.rtriangle(model.factors, N)
 }

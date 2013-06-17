@@ -1,6 +1,6 @@
 \name{epirice.weather}
 \alias{epirice.weather}
-\title{Reading Weather data function for EPIRICE (South Asia Weather)}
+\title{Read weather data for Epirice (southern Asia weather)}
 \usage{
   epirice.weather(working.year = NA, working.site = NA)
 }
@@ -16,7 +16,6 @@
   site(s) and for one or several year(s)
 }
 \description{
-  Reading Weather data function for EPIRICE (South Asia
-  Weather)
+  Read weather data for Epirice (southern Asia weather)
 }
 

@@ -7,7 +7,7 @@
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
 ################################################################################
-#' @title Water Balance model function - Update
+#' @title WaterBalance model - calculate change in soil water for one day
 #' @param WAT0 : Water at the beginning of the day (mm).
 #' @param RAIN : Rainfall of day (mm)
 #' @param ETr : Evapotranspiration of day (mm)
@@ -43,7 +43,7 @@ watbal.update = function(WAT0,RAIN, ETr,param,WP,FC){
   return(WAT1)
 }
 ################################################################################
-#' @title Water Balance model function - Integration loop
+#' @title WaterBalance model - calculate soil water over designated time period
 #' @param param : a vector of parameters
 #' @param weather : weather data.frame for one single year
 #' @param WP : Water content at wilting Point (cm^3.cm^-3)
@@ -76,7 +76,7 @@ watbal.model = function(param, weather, WP, FC, WAT0=NA)
 }
 
 ################################################################################
-#' @title Define parameter values of the Water Balance model
+#' @title Define values of the parameters for the WaterBalance model
 #' @return matrix with parameter values (nominal, binf, bsup)
 #' @export
 watbal.define.param = function()
@@ -103,7 +103,7 @@ watbal.define.param = function()
 }
 
 ################################################################################
-#' @title Reading Weather data function for Water Balance model (West of France Weather)
+#' @title Read weather data for the WaterBalance model (West of France Weather)
 #' @param working.year : year for the subset of weather data (default=NA : all the year)
 #' @param working.site : site for the subset of weather data (default=NA : all the site)
 #' @return data.frame with daily weather data for one or several site(s) and for one or several year(s)
@@ -120,6 +120,7 @@ watbal.weather = function(working.year=NA, working.site=NA)
     names(weather)[names(weather)=="WEYR"]= "year"
     names(weather)[names(weather)=="SRAD"]= "I"
     names(weather)[names(weather)=="TMAX"]= "Tmax"
+    names(weather)[names(weather)=="TMIN"]= "Tmin"
     names(weather)[names(weather)=="RAIN"]= "RAIN"
     names(weather)[names(weather)=="ETr"]= "ETr"
     # if argument working.year/working.site is specified, work on one particular year/site
@@ -130,4 +131,77 @@ watbal.weather = function(working.year=NA, working.site=NA)
     return (weather)
     }
 ################################################################################
+#' @title WaterBalance model - Variant with another order of calculation and ARID index
+#' @param WHC : Water Holding Capacity of the soil (cm^3 cm^-3)
+#' @param MUF : Water Uptake coefficient (mm^3 mm^-3)
+#' @param DC : Drainage coefficient (mm^3 mm^-3)
+#' @param z : root zone depth (mm)
+#' @param CN : Runoff curve number
+#' @param weather : weather data.frame for one single year
+#' @param WP : Water content at wilting Point (cm^3.cm^-3)
+#' @param FC : Water content at field capacity (cm^3.cm^-3)
+#' @param WAT0 : Initial Water content (mm). If NA WAT0=z*FC
+#' @return data.frame with daily RAIN, ETR, Water at the beginning of the day (absolute : WAT, mm and relative value : WATp, -)
+#' @export
+watbal.model.arid = function(WHC, MUF, DC, z, CN, weather, WP, FC, WAT0=NA)
+{
+    #WHC :Water Holding Capacity of the soil (cm3.cm-3)
+    #MUF :Water Uptake coefficient (mm^3 mm^-3)        
+    #DC :Drainage coefficient (mm3.mm-3)              
+    #z :root zone depth (mm)                         
+    #CN :Runoff curve number 
+  	
+    # Maximum abstraction (for run off)
+	S = 25400/CN-254
+	# Initial Abstraction (for run off)
+	IA = 0.2*S
+    # WATfc : Maximum Water content at field capacity (mm)
+    WATfc = FC*z
+    # WATwp : Water content at wilting Point (mm)
+    WATwp = WP*z
+    
+    # input variable describing the soil
+	# WP : Water content at wilting Point (cm^3.cm^-3)
+	# FC : Water content at field capacity (cm^3.cm^-3)
+	# WAT0 : Initial Water content (mm)
+	if (is.na(WAT0)) {WAT0 = z*FC}
+	# Initialize variable
+    # WAT : Water at the beginning of the day (mm) : State variable
+    WAT = rep(NA, nrow(weather))
+    
+    # supplementary variable ARID drought index. 
+    # computed as the ratio of transpiration to potential transpiration. (See Woli, 2010)        
+    # A value of ARID = 0 means that there is no water stress in the crop; a value of ARID=1 means a maximum stress with no growth
+    ARID = rep(NA, nrow(weather))
+    
+    # initialisation-use Amount of water at the beginning
+    WAT[1]=WAT0
+    ARID[1] = NA
+    # integration loops
+    for (day in 1:(nrow(weather)-1))
+	{
+        # Calculate rate of change of state variable WAT
+	  # Compute maximum water uptake by plant roots on a day, RWUM
+          RWUM = MUF*(WAT[day]-WATwp)
+        # Calculate the amount of water lost by transpiration (TR)-prior to RAIN, RO, and DR 
+          TR = min(RWUM, weather$ETr[day])       
+
+        # Compute Surface Runoff (RO)
+	    if (weather$RAIN[day]>IA){RO = (weather$RAIN[day]-0.2*S)^2/(weather$RAIN[day]+0.8*S)}else{RO = 0}
+        # Calculate the amount of deep drainage (DR)
+         if (WAT[day]+weather$RAIN[day]-RO > WATfc){DR = DC*(WAT[day]+weather$RAIN[day]-RO-WATfc)}else{DR = 0}
+
+        # Update state variables 
+	    dWAT = weather$RAIN[day] - RO -DR -TR
+          WAT[day+1] = WAT[day] + dWAT
+
+        # compute the ARID index. Note that it is an auxilliary variable, not a "state variable" as is WAT[day]
+        if (TR < weather$ETr[day])   {ARID[day+1] = 1 - TR/weather$ETr[day]}      else    {ARID[day+1] = 0.0}
+
+	}
+    
+    # Volumetric Soil Water content (fraction : mm.mm-1)
+    WATp=WAT/z
+	return(data.frame(day = weather$day, RAIN = weather$RAIN, ETr = weather$ETr, WAT = WAT, WATp=WATp, ARID=ARID));
+}
 # End of file

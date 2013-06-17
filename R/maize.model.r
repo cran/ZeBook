@@ -6,7 +6,7 @@
 # version : 2010-08-09
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
-#' @title The basic Maize model function
+#' @title The basic Maize model.
 #' @description \strong{Model description.}
 #' This model is a dynamic model of crop growth for Maize cultivated in potential conditions.
 #' The crop growth is represented by three state variables, leaf area per unit ground area (leaf area index, LAI), total biomass (B) and cumulative thermal time since plant emergence (TT). It is based on key concepts included in most crop models, at least for the "potential production" part. In fact, this model does not take into account any effects of soil water, nutrients, pests, or diseases,... 
@@ -31,10 +31,13 @@
 #' @param sdate : sowing date
 #' @param ldate : last date
 #' @return data.frame with daily TT, LAI,B
+#' @seealso \code{\link{maize.model2}}, \code{\link{maize.define.param}}, \code{\link{maize.simule}}, \code{\link{maize.multisy}},
+#' \code{\link{maize.simule240}},\code{\link{maize.simule_multisy240}}
 #' @export
 #' @examples 
 #' weather = maize.weather(working.year=2010, working.site=30,weather_all=weather_EuropeEU)
-#' maize.model(Tbase=7, RUE=1.85, K=0.7, alpha=0.00243, LAImax=7, TTM=1200, TTL=700, weather, sdate=100, ldate=250)
+#' maize.model(Tbase=7, RUE=1.85, K=0.7, alpha=0.00243, LAImax=7, TTM=1200, TTL=700,
+#'   weather, sdate=100, ldate=250)
 maize.model<-function(Tbase,RUE,K,alpha,LAImax,TTM,TTL,weather,sdate,ldate)
     {
     # Initialize variables
@@ -70,7 +73,7 @@ maize.model<-function(Tbase,RUE,K,alpha,LAImax,TTM,TTL,weather,sdate,ldate)
     return(data.frame(day=sdate:ldate,TT=TT[sdate:ldate],LAI=LAI[sdate:ldate],B=B[sdate:ldate]))    
     }
 ################################################################################
-#' @title The basic Maize model function with a little change to use with maize.simul
+#' @title The basic Maize model for use with maize.simule
 #' @param param : a vector of parameters
 #' @param weather : weather data.frame for one single year
 #' @param sdate : sowing date
@@ -94,7 +97,7 @@ maize.model2<-function(param, weather,sdate,ldate)
   return(maize.model(Tbase, RUE, K, alpha, LAImax, TTM, TTL, weather, sdate, ldate))
 }
 ################################################################################
-#' @title Define parameter values of the maize model
+#' @title Define values of the parameters for the Maize model
 #' @return matrix with parameter values (nominal, binf, bsup)
 #' @export
 maize.define.param <- function()
@@ -119,7 +122,7 @@ row.names(param)<-c("nominal","binf","bsup")
 return(as.matrix(param))
 }
 ################################################################################
-#' @title Wrapping function to run an virtual experimental design for maize model
+#' @title Wrapper function to run Maize model for multiple sets of parameter values
 #' @param X : matrix of n row vectors of 7 parameters
 #' @param weather : weather data.frame for one single year
 #' @param sdate : sowing date
@@ -153,7 +156,7 @@ maize.multisy<-function(param, list_site_year, sdate,ldate, weather_all=weather_
   return(sim)
 }
 ################################################################################
-#' @title Wrapping function to run maize model on a matrix of parameter (virtual design) and give Biomass at day240
+#' @title Wrapper function to run Maize model multiple times for multiple sets of parameter values and give Biomass at day240
 #' @param X : matrix of n row vectors of 7 parameters
 #' @param weather : weather data.frame for one single year
 #' @param sdate : sowing date
@@ -162,14 +165,15 @@ maize.multisy<-function(param, list_site_year, sdate,ldate, weather_all=weather_
 #' @return a matrix of biomass at day=240 for all combinations of parameters of X
 #' @export
 #' @examples sy="18-2006"
-#' weather = maize.weather(working.year=strsplit(sy,"-")[[1]][2], working.site=strsplit(sy,"-")[[1]][1],weather_all=weather_EuropeEU)
+#' weather = maize.weather(working.year=strsplit(sy,"-")[[1]][2],
+#'   working.site=strsplit(sy,"-")[[1]][1],weather_all=weather_EuropeEU)
 #' maize.simule240(maize.define.param(),weather, sdate=100, ldate=250, all=FALSE)
 maize.simule240<-function(X, weather, sdate, ldate, all=FALSE){
 Y <- apply(X,1,function(v) maize.model2(v[1:7],weather, sdate, ldate)[240-sdate+1,"B"])
 if(all) Y = cbind(X,B = Y)
 return(as.matrix(Y))}
 ################################################################################
-#' @title Wrapping function to run maize model on a list of site-year and compute mean Biomass at day240.
+#' @title Wrapper function to run Maize model for multiple sets of input variables (site-year) and give Biomass at day240.
 #' @param param : a vector of parameters
 #' @param liste_sy : vector of site-year
 #' @param sdate : sowing date
@@ -181,7 +185,7 @@ maize.multisy240<-function(param,liste_sy, sdate, ldate){
 Y <- sapply(liste_sy,function(sy) maize.model2(param,maize.weather(working.year=strsplit(sy,"-")[[1]][2], working.site=strsplit(sy,"-")[[1]][1],weather_all=weather_EuropeEU),sdate,ldate)[240-sdate+1,"B"])
 return(mean(as.matrix(Y)))}
 ################################################################################
-#' @title Wrapping function to run maize model and compute mean Biomass at day240 for a list of site-year, for a matrix of parameter (design).
+#' @title Wrapper function to run Maize model for multiple sets of parameter values (virtual design) and multiple sets of input variables (site-year) and give Biomass at day240
 #' @param X : matrix of n row vectors of 7 parameters
 #' @param liste_sy : vector of site-year
 #' @param sdate : sowing date
@@ -189,14 +193,15 @@ return(mean(as.matrix(Y)))}
 #' @param all : if you want a matrix combining X and output (default = FALSE)
 #' @return a matrix of mean biomass at day=240 for all combinations of parameters of X
 #' @export
-#' @examples maize.simule_multisy240(maize.define.param(),c("18-2006","64-2004") , sdate=100, ldate=250, all=FALSE)
+#' @examples maize.simule_multisy240(maize.define.param(),c("18-2006","64-2004"),
+#'   sdate=100, ldate=250, all=FALSE)
 maize.simule_multisy240<-function(X,liste_sy, sdate, ldate, all=FALSE){
 Y <- apply(X,1,function(v) maize.multisy240(v[1:7],liste_sy, sdate, ldate))
 if(all) Y = cbind(X,B = Y)
 return(as.matrix(Y))
 }
 ################################################################################
-#' @title the Maize model function with additional state variable CumInt
+#' @title The Maize model with additional state variable CumInt
 #' @param Tbase :	parameter the baseline temperature for growth (degreeCelsius)
 #' @param TTM	:	parameter temperature sum for crop maturity (degreeC.day)
 #' @param TTL	:	parameter temperature sum at the end of leaf area increase (degreeC.day)
@@ -251,7 +256,7 @@ maize_cir.model<-function(Tbase,RUE,K,alpha,LAImax,TTM,TTL,weather,sdate,ldate)
     }
 
 ###############################################################################
-#' @title Effect of the temperature on RUE for Maize
+#' @title Calculate effect of temperature on RUE for Maize
 #' @param T : temperature
 #' @param RUE_max : maximum value for RUE
 #' @param T0 : temperature parameter
@@ -265,7 +270,7 @@ maize.RUEtemp <- function(T, RUE_max,T0,T1,T2,T3)
 	RUE = ((T>=T0)*(T<T1))* RUE_max*(T-T0)/(T1-T0) + ((T>=T1)*(T<T2))*RUE_max + ((T>=T2)*(T<T3))*RUE_max*(T3-T)/(T3-T2)
 	}
 ###############################################################################
-#' @title The Maize model function with rue (and CumInt)
+#' @title The Maize model with temperature dependent RUE and CumInt
 #' @param Tbase :	parameter the baseline temperature for growth (degreeCelsius)
 #' @param TTM	:	parameter temperature sum for crop maturity (degreeC.day)
 #' @param TTL	:	parameter temperature sum at the end of leaf area increase (degreeC.day)
@@ -317,7 +322,7 @@ maize_cir_rue.model<-function(Tbase,RUE_max,K,alpha,LAImax,TTM,TTL,weather,sdate
     }
 
 ###############################################################################
-#' @title The Maize model function with CumInt, RUE and ear growth
+#' @title The Maize model with temperature dependent RUE, CumInt and ear growth
 #' @param Tbase :	parameter the baseline temperature for growth (degreeCelsius)
 #' @param TTM	:	parameter temperature sum for crop maturity (degreeC.day)
 #' @param TTL	:	parameter temperature sum at the end of leaf area increase (degreeC.day)
@@ -380,7 +385,7 @@ maize_cir_rue_ear.model<-function(Tbase,RUE_max,K,alpha,LAImax,TTM,TTL,weather,s
     }
 
 ###############################################################################
-#' @title Reading Weather data function for MAIZE model (West of France Weather)
+#' @title Read weather data for the Maize model
 #' @param working.year : year for the subset of weather data (default=NA : all the year)
 #' @param working.site : site for the subset of weather data (default=NA : all the site)
 #' @param weather_all : weather data base (default=weather_FranceWest)

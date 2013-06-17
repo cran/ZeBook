@@ -1,6 +1,6 @@
 \name{magarey.model2}
 \alias{magarey.model2}
-\title{The Magarey model, taking in argument a vector of param}
+\title{The Magarey model, taking a vector of parameters as argument}
 \usage{
   magarey.model2(T, param)
 }

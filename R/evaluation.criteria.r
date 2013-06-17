@@ -4,7 +4,7 @@
 # Francois Brun (ACTA)
 # version : 2013-03-25
 ################################ FUNCTIONS #####################################
-#' @title Computation of classical evaluation criteria function
+#' @title Calcule multiple goodness-of-fit criteria
 #' @description This function is depreciated and will be remove from the package in future versions. Please use goodness.of.fit
 #' @param Ypred : prediction values from the model
 #' @param Yobs : observed values

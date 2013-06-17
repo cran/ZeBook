@@ -1,5 +1,5 @@
 #' @name weather_FranceWest
-#' @title Weather serie for West of France from NASA POWER agroclimatology 
+#' @title Weather series for western France from NASA POWER agroclimatology
 #' @description This contemporary daily climate dataset for West of France
 #' covers the period 1st January 1984 to 31 December 2011.
 #' The precipitation data is limited to the period Jan-1997 Aug-2009, thus only 12 complete

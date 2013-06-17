@@ -1,6 +1,6 @@
 \name{weed.model}
 \alias{weed.model}
-\title{The weed model function}
+\title{The Weed model - calculate daily values over designated time period}
 \usage{
   weed.model(param, weed.deci)
 }

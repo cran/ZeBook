@@ -1,6 +1,6 @@
 \name{AICf}
 \alias{AICf}
-\title{Calculation of AIC, Akaike's Information Criterion, given a vector of observation, a vector of prediction and number of parameter.}
+\title{Calculate AIC, Akaike's Information Criterion}
 \usage{
   AICf(Yobs, Ypred, npar)
 }

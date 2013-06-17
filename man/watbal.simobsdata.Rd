@@ -1,7 +1,7 @@
 \docType{data}
 \name{watbal.simobsdata}
 \alias{watbal.simobsdata}
-\title{Soil water content measurements and}
+\title{Soil water content measurements and associated simulations with WaterBalance model}
 \format{a \code{RangedData} instance, 1 row per day :
 Weather : day / RAIN / ETr /
 simulation :  WAT / WATp / ARID

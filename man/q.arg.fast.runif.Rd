@@ -1,6 +1,6 @@
 \name{q.arg.fast.runif}
 \alias{q.arg.fast.runif}
-\title{Building the q.arg argument for FAST function}
+\title{Build the q.arg argument for the  FAST function (sensitivity analysis)}
 \usage{
   q.arg.fast.runif(model.factors)
 }

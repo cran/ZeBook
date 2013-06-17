@@ -1,6 +1,6 @@
 \name{watbal.weather}
 \alias{watbal.weather}
-\title{Reading Weather data function for Water Balance model (West of France Weather)}
+\title{Read weather data for the WaterBalance model (West of France Weather)}
 \usage{
   watbal.weather(working.year = NA, working.site = NA)
 }
@@ -16,7 +16,7 @@
   site(s) and for one or several year(s)
 }
 \description{
-  Reading Weather data function for Water Balance model
-  (West of France Weather)
+  Read weather data for the WaterBalance model (West of
+  France Weather)
 }
 

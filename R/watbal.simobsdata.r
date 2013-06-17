@@ -1,5 +1,5 @@
 #' @name watbal.simobsdata
-#' @title Soil water content measurements and
+#' @title Soil water content measurements and associated simulations with WaterBalance model
 #' @description
 #' Data of soil water content from Luc Champolivier (CETIOM), in En Crambade (31, France), on canola without irrigation in 2008.
 #' sonde Diviner 2000 (from Sentek Pty Ltd)

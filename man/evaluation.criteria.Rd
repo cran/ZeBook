@@ -1,6 +1,6 @@
 \name{evaluation.criteria}
 \alias{evaluation.criteria}
-\title{Computation of classical evaluation criteria function}
+\title{Calcule multiple goodness-of-fit criteria}
 \usage{
   evaluation.criteria(Ypred, Yobs, draw.plot = FALSE)
 }
