@@ -5,12 +5,13 @@
 # version : 2013-03-17
 ################################ FUNCTIONS #####################################
 #' @title Calcule multiple goodness-of-fit criteria
+#' @description Calcule multiple goodness-of-fit criteria
 #' @param Ypred : prediction values from the model
 #' @param Yobs : observed values
 #' @param draw.plot : draw evaluation plot
 #' @return data.frame with the different evaluation criteria
 #' @export
-#' @examples 
+#' @examples
 #' # observed and simulated values
 #' obs<-c(78,110,92,75,110,108,113,155,150)
 #' sim<-c(126,126,126,105,105,105,147,147,147)
@@ -24,7 +25,7 @@ goodness.of.fit<-function(Yobs,Ypred,draw.plot=FALSE){
   # return error if Yobs and Ypred aren't of same length
   if (Npred != Nobs)  stop("Ypred and Yobs have different lengths")
 
-  # we keep only Ypred and Yobs where both are not NA. 
+  # we keep only Ypred and Yobs where both are not NA.
   select=!is.na(Ypred)&!is.na(Yobs)
   Ypred=Ypred[select]
   Yobs=Yobs[select]
@@ -57,11 +58,11 @@ goodness.of.fit<-function(Yobs,Ypred,draw.plot=FALSE){
   denom1<-abs(Ypred-mean(Yobs))
   denom2<-abs(Yobs-mean(Yobs))
   index<-1-sum((Yobs-Ypred)^2)/sum((denom1+denom2)^2)
- 
-  # Calculate the decomposition of MSE into bias², SDSD, LCS
+
+  # Calculate the decomposition of MSE into squared-bias, SDSD, LCS
   # The first term is squared bias.
   bias.Squared<-bias^2
-  #The second term  is SDSD ­ squared difference between the standard deviations of observed and predicted values
+  #The second term  is SDSD squared difference between the standard deviations of observed and predicted values
   SDSD<-(sd(Ypred)-sd(Yobs))^2*(N-1)/N
   #The third term is the lack of correlation term
   LCS<-2*sd(Yobs)*sd(Ypred)*(1-cor(Yobs,Ypred))*(N-1)/N
@@ -97,16 +98,17 @@ goodness.of.fit<-function(Yobs,Ypred,draw.plot=FALSE){
 
   return(data.frame(N=N,mean.Yobs=mean.Yobs,mean.Ypred=mean.Ypred,
 	bias=bias,sd.Yobs=sd(Yobs),sd.Ypred=sd(Ypred),
-	MSE=MSE,RMSE=RMSE,relative.RMSE=RRMSE, 
+	MSE=MSE,RMSE=RMSE,relative.RMSE=RRMSE,
    	MAE=MAE, relative.RMAE=RMAE, relative.MAE.prime=RMAEP, EF=EF,
-	Willmott.index=index, 
+	Willmott.index=index,
 	bias.squared=bias.Squared,SDSD=SDSD,LCS=LCS,
 	bias.squared.again=bias.Squared, NU=NU, LC=LC,
 	MSE.systematic=MSEs, MSE.unsystematic=MSEu))
 }
 
 
-#' @title TO COMPLETE Computation of threshold.measures
+#' @title Computation of threshold.measures
+#' @description Computation of threshold.measures
 #' @param Ypred : prediction values from the model
 #' @param Yobs : observed values
 #' @param p : TO COMPLETE
@@ -114,7 +116,7 @@ goodness.of.fit<-function(Yobs,Ypred,draw.plot=FALSE){
 #' @param units : units
 #' @return data.frame with the different evaluation criteria
 #' @export
-#' @examples 
+#' @examples
 #' # observed and simulated values
 #' obs<-c(78,110,92,75,110,108,113,155,150)
 #' sim<-c(126,126,126,105,105,105,147,147,147)
@@ -129,7 +131,7 @@ threshold.measures<-function(Yobs,Ypred,p,d,units=""){
   # return error if Yobs and Ypred aren't of same length
   if (Npred != Nobs)  stop("Ypred and Yobs have different lengths")
 
-  # we keep only Ypred and Yobs where both are not NA. 
+  # we keep only Ypred and Yobs where both are not NA.
   select=!is.na(Ypred)&!is.na(Yobs)
   Ypred=Ypred[select]
   Yobs=Yobs[select]
@@ -143,7 +145,7 @@ threshold.measures<-function(Yobs,Ypred,p,d,units=""){
   # find percentage of absolute errors <=d
   CP<-100*sum(sortErr<=d)/N
   print(paste(CP," % of errors have abs value less than or equal to ",d,units))
-	
+
   return(data.frame(TDIp=TDIp,CP=CP))
 }
 

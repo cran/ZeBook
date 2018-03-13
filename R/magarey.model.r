@@ -36,6 +36,7 @@ magarey.model2<-function(T, param){
 
 ################################################################################
 #' @title Define values of the parameters for the Magarey model
+#' @description Define values of the parameters for the Magarey model
 #' @param species : name of a species. By default, value for an "unkown" species are given. Other possibility are "G.citricarpa" or "Kaki.fungus"
 #' @return matrix with parameter values (nominal, binf, bsup)
 #' @examples magarey.define.param(species="G.citricarpa")
@@ -44,9 +45,9 @@ magarey.model2<-function(T, param){
 magarey.define.param <- function(species="unkown")
 {
 # nominal, binf, bsup
-# Tmin  : the minimal temperature for infection (°C)
-# Topt  : the optimal temperature for infection (°C)
-# Tmax  : the maximal temperature for infection (°C)
+# Tmin  : the minimal temperature for infection (degC)
+# Topt  : the optimal temperature for infection (degC)
+# Tmax  : the maximal temperature for infection (degC)
 # Wmin : minimal wetness duration for infection (hour)
 # Wmax : maximal wetness duration for infection (hour)
 
@@ -79,6 +80,7 @@ return(as.matrix(param))
 }
 ################################################################################
 #' @title Wrapper function to run the Magarey model multiple times (for multiple sets of inputs)
+#' @description Wrapper function to run the Magarey model multiple times (for multiple sets of inputs)
 #' @param X : parameter matrix
 #' @param T : input variable, temperature
 #' @param all : if you want a matrix combining X and output

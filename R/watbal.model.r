@@ -8,6 +8,7 @@
 ################################ FUNCTIONS #####################################
 ################################################################################
 #' @title WaterBalance model - calculate change in soil water for one day
+#' @description WaterBalance model - calculate change in soil water for one day
 #' @param WAT0 : Water at the beginning of the day (mm).
 #' @param RAIN : Rainfall of day (mm)
 #' @param ETr : Evapotranspiration of day (mm)
@@ -44,6 +45,7 @@ watbal.update = function(WAT0,RAIN, ETr,param,WP,FC){
 }
 ################################################################################
 #' @title WaterBalance model - calculate soil water over designated time period
+#' @description WaterBalance model - calculate soil water over designated time period
 #' @param param : a vector of parameters
 #' @param weather : weather data.frame for one single year
 #' @param WP : Water content at wilting Point (cm^3.cm^-3)
@@ -77,6 +79,7 @@ watbal.model = function(param, weather, WP, FC, WAT0=NA)
 
 ################################################################################
 #' @title Define values of the parameters for the WaterBalance model
+#' @description Define values of the parameters for the WaterBalance model
 #' @return matrix with parameter values (nominal, binf, bsup)
 #' @export
 watbal.define.param = function()
@@ -104,6 +107,7 @@ watbal.define.param = function()
 
 ################################################################################
 #' @title Read weather data for the WaterBalance model (West of France Weather)
+#' @description Read weather data for the WaterBalance model (West of France Weather)
 #' @param working.year : year for the subset of weather data (default=NA : all the year)
 #' @param working.site : site for the subset of weather data (default=NA : all the site)
 #' @return data.frame with daily weather data for one or several site(s) and for one or several year(s)
@@ -113,8 +117,8 @@ watbal.weather = function(working.year=NA, working.site=NA)
     {
     #day month year R Tmax Tmin rain ETP
     # R : solar radiation (MJ)
-    # Tmax : maximum temperature (°C)
-    # Tmin : minimum temperature (°C)
+    # Tmax : maximum temperature (degC)
+    # Tmin : minimum temperature (degC)
     weather=weather_FranceWest
     names(weather)[names(weather)=="WEDAY"]= "day"
     names(weather)[names(weather)=="WEYR"]= "year"
@@ -132,6 +136,7 @@ watbal.weather = function(working.year=NA, working.site=NA)
     }
 ################################################################################
 #' @title WaterBalance model - Variant with another order of calculation and ARID index
+#' @description WaterBalance model - Variant with another order of calculation and ARID index
 #' @param WHC : Water Holding Capacity of the soil (cm^3 cm^-3)
 #' @param MUF : Water Uptake coefficient (mm^3 mm^-3)
 #' @param DC : Drainage coefficient (mm^3 mm^-3)

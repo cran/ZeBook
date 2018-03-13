@@ -17,7 +17,7 @@
 #' model version 4 (GEOS-4), and precipitation from the Global
 #' Precipitation Climate Project and Topical Rainfall Measurement
 #' Mission. A full description can be found at 
-#' \url{http://power.larc.nasa.gov/common/MethodologySSE6/POWER_Methodology_Content.html}
+#' \url{https://power.larc.nasa.gov/common/php/POWER_AboutAgroclimatology.php}
 #' Elevation (Altitude) were retrive from Aster Global Digital Elevation Model
 #' by using the Webservice api.geonames.org/astergdem?
 #' Sample are: ca 30m x 30m, between 83N and 65S latitude.

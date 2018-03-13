@@ -169,13 +169,13 @@ population.age.model.ode = function(rb=3.5,mE=0.017,rE=0.172,m1=0.060,r12=0.217,
   # definiting the model as an ordinary differential equation system
   predator.prey.ode <- function(Time, State, Pars) {
       with(as.list(c(State, Pars)), {
-          dE= (rb*A - rE*E - mE*E)*dt
-          dL1= (rE*E - r12*L1 - m1*L1)*dt
-          dL2= (r12*L1 - r23*L2 - m2*L2)*dt
-          dL3= (r23*L2 - r34*L3 - m3*L3)*dt
-          dL4= (r34*L3 - r4P*L4 - m4*L4)*dt
-          dP= (r4P*L4 - rPA*P - mP*P)*dt
-          dA= (rPA*P - mA*A + iA)*dt
+          dE= rb*A - rE*E - mE*E
+          dL1= rE*E - r12*L1 - m1*L1
+          dL2= r12*L1 - r23*L2 - m2*L2
+          dL3= r23*L2 - r34*L3 - m3*L3
+          dL4= r34*L3 - r4P*L4 - m4*L4
+          dP= r4P*L4 - rPA*P - mP*P
+          dA= rPA*P - mA*A + iA
           return(list(c(dE, dL1, dL2, dL3, dL4, dP, dA)))
       })
   }

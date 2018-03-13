@@ -30,7 +30,7 @@ lactation.calf.model <- function(cu,kdiv,kdl,kdh,km,ksl,kr,ks,ksm,mh,mm,p,mum,rc
 {
  # Initialize variables
  # 5 states variables, as 5 vectors initialized to NA
-    # H : Hormone effector of cell division (kg/m³)
+    # H : Hormone effector of cell division (kg/m3)
 H=rep(NA,(duration-1)/dt)
     # CS : Number of secretory cells
 CS=rep(NA,(duration-1)/dt)
@@ -98,6 +98,7 @@ lactation.calf.model2 <- function(param,duration,dt){
 }
 ################################################################################
 #' @title Wrapper function to run the Lactation model for multiple sets of parameter values
+#' @description Wrapper function to run the Lactation model for multiple sets of parameter values
 #' @param X : parameter matrix
 #' @param duration : duration of simulation
 #' @param dt : time step

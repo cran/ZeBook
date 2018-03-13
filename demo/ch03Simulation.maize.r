@@ -37,16 +37,17 @@ output<-maize.model(Tbase,RUEmax,K,alpha,LAImax,TTM,TTL,weather,sdate,ldate)
 options(digits=3)
 format(output)
 #write.table(format(output), file = "output.csv", quote = FALSE, sep = "\t", dec = ".", row.names = FALSE)
-# Produce graphical output of the state variables
 dev.new()
 par(mfcol=c(3,2))
-plot(output$day,output$TT, xlab = "day", ylab = "Temperature sum",type="l")
-plot(output$day,output$B, xlab = "day", ylab = "Biomass",type="l")
-plot(output$day,output$LAI, xlab = "day", ylab = "LAI",type="l")
-# Produce graphical output of the input variables
+# Produce graphics of the input variables
 plot(1:365,weather$Tmin, xlab = "day", ylab = "Temperature min")
 plot(1:365,weather$Tmax, xlab = "day", ylab = "Temperature max")
 plot(1:365,weather$I, xlab = "day", ylab = "Solar Radiation")
+# Produce graphics of the state variables
+plot(output$day,output$TT, xlab = "day", ylab = "Temperature sum",type="l")
+plot(output$day,output$B, xlab = "day", ylab = "Biomass",type="l")
+plot(output$day,output$LAI, xlab = "day", ylab = "LAI",type="l")
+
 
 ################################################################################
 ## Question 1

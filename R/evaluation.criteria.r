@@ -55,7 +55,7 @@ evaluation.criteria=function(Ypred,Yobs,draw.plot=FALSE){
   # The first term is squared bias.
   bias.Squared<-bias^2
   bias.Squared
-  #The second term  is SDSD ­ squared difference between the standard deviations of observed and predicted values
+  #The second term  is SDSD squared difference between the standard deviations of observed and predicted values
   SDSD<-(std.Yobs-std.Ypred)^2
   SDSD
 

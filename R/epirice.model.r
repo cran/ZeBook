@@ -116,6 +116,7 @@ fRcW<-function(RH,RAIN){if(RH>=90 | RAIN>=5) {return(1)} else {return(0)}   }
 }
 ################################################################################
 #' @title Wrapper function to run Epirice multiple times (for multiple sets of inputs)
+#' @description Wrapper function for epirice.model
 #' @param param : a vector of parameters
 #' @param multi.simule : matrix of n row definition of input variable : site, year and date of transplantation.
 #' @param all : if you want a matrix combining multi.simule and output (default = FALSE)
@@ -132,6 +133,7 @@ return(AUDPC)
 
 ################################################################################
 #' @title Define values of the parameters for the Epirice model
+#' @description Define parameters values
 #' @return matrix with parameter values (nominal, binf, bsup)
 #' @export
 epirice.define.param <- function()
@@ -158,18 +160,20 @@ return(as.matrix(param))
 }
 ################################################################################
 #' @title Read weather data for Epirice (southern Asia weather)
+#' @description Read weather data and format them for epirice.model
 #' @param working.year : year for the subset of weather data (default=NA : all the year)
 #' @param working.site : site for the subset of weather data (default=NA : all the site)
+#' @param weather : weather table
 #' @return data.frame with daily weather data for one or several site(s) and for one or several year(s)
 #' @export
 # Reading Weather data function
-epirice.weather=function(working.year=NA, working.site=NA)
+epirice.weather=function(working.year=NA, working.site=NA,weather=weather_SouthAsia)
     {
     #day month year R Tmax Tmin rain ETP
     # idsite","GPSlatitude","GPSlongitude","WEYR","WEDAY","TMAX","TMIN","RAIN","RH2M"
     # Tmax : maximum temperature (celsius)
     # Tmin : minimum temperature (celsius)
-    weather=weather_SouthAsia
+    
     names(weather)[names(weather)=="WEYR"|names(weather)=="WEDAY"]= c("year","day")
     # if argument working.year/working.site is specified, work on one particular year/site
     if (!is.na(working.year)&!is.na(working.site)) {weather=weather[(weather$year==working.year)&(weather$idsite==working.site),] }

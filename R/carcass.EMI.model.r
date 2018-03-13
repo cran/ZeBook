@@ -1,3 +1,10 @@
+################################################################################
+# "Working with dynamic models for agriculture"
+# R script for practical work
+# Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
+# Francois Brun (ACTA)
+# version : 2018-03-04
+# Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
 #' @title The Carcass (growth of beef cattle) model with energy as input
 #' @description \strong{Model description.}
@@ -142,6 +149,7 @@ return(carcass.EMI.model(param[1],param[2],param[3],param[4],param[5],param[6],p
 
 ################################################################################
 #' @title Wrapper function to the Carcass model for multiple sets of parameter values
+#' @description Wrapper function to the Carcass model for multiple sets of parameter values
 #' @param X : parameter matrix
 #' @param energy : Metabolizable energy available
 #' @param PVi : initial liveweight
@@ -156,6 +164,7 @@ return(sim)
 }
 ################################################################################
 #' @title Wrapper function to run Carcass model on several animals with different conditions
+#' @description wrapper function for multisimulation with carcass.EMI.model2
 #' @param param : a vector of parameters
 #' @param list_individuals : list of individuals
 #' @param energy : Metabolizable energy available for all individuals
@@ -181,6 +190,7 @@ return(sim)
 }
 ################################################################################
 #' @title Define values of the parameters for the Carcass model
+#' @description Define parameters values
 #' @param full : if TRUE, return the full description of distribution(default = FALSE)
 #' @return matrix with parameter values (nominal, binf, bsup). A data.frame if full=TRUE
 #' @examples carcass.define.param(full=TRUE)

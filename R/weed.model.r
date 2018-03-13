@@ -1,4 +1,6 @@
 ################################################################################
+################################################################################
+################################################################################
 # Working with dynamic models for agriculture
 # R script for practical work
 # Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida),
@@ -7,7 +9,7 @@
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################ FUNCTIONS #####################################
 #' @title The Weed model - calculate change for one year
-#' @description TOCOMPLETE
+#' @description The Weed model - calculate change for one year
 #' @param d : weed density at seed emergence (plants/m2) - value for year
 #' @param S : seed production per m2 - value for year
 #' @param SSBa : surface seedbank after tillage (grains/m2) - value for year
@@ -57,7 +59,7 @@ return(c(d1, S1, SSBa1, DSBa1, Yield1))
 }
 ################################################################################
 #' @title The Weed model - calculate daily values over designated time period
-#' @description TOCOMPLETE
+#' @description The Weed model - calculate daily values over designated time period
 #' @param param : vector of the 16 parameters
 #' @param weed.deci : decisions table for Soil, Crop et Herbicide 
 #' @return data.frame with annual values of yield
@@ -106,6 +108,7 @@ return(data.frame(year=0:duration,d=d,S=S,SSBa=SSBa,DSBa=DSBa,Yield=Yield))
 
 ################################################################################
 #' @title Wrapper function to run the Weed model multiple times (for multiple sets of inputs)
+#' @description Wrapper function to run the Weed model multiple times (for multiple sets of inputs)
 #' @param X : parameter matrix
 #' @param weed.deci : decisions table for Soil, Crop et Herbicide 
 #' @return matrix with Yield for year 3 for each parameter vector
@@ -118,6 +121,7 @@ weed.simule=function(X, weed.deci) {
 
 ################################################################################
 #' @title Define parameter values of the Weed model
+#' @description Define parameter values of the Weed model
 #' @return matrix with parameter values (nominal, binf, bsup)
 #' @export
 weed.define.param = function()

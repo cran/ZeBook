@@ -5,6 +5,7 @@
 # version : 2013-05-23
 ################################################################################
 #' @title The Exponential growth model of dynamic of population
+#' @description Exponential growth model of dynamic of population
 #' @param a : growth rate
 #' @param Y0 : initial condition
 #' @param duration : duration of simulation
@@ -40,6 +41,7 @@ while (time < duration){
 }
 ################################################################################
 #' @title The Exponential growth model of dynamic of population - with improved Euler integration
+#' @description Exponential growth model of dynamic of population - with improved Euler integration
 #' @param a : growth rate
 #' @param Y0 : initial condition
 #' @param duration : duration of simulation
@@ -79,6 +81,7 @@ dYP = a*YP*dt
 }
 ################################################################################
 #' @title The Exponential growth model of dynamic of population - another form
+#' @description Exponential growth model of dynamic of population - another form
 #' @param a : growth rate
 #' @param Y0 : initial condition
 #' @param duration : duration of simulation

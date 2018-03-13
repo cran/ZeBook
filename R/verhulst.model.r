@@ -7,6 +7,7 @@
 # Model described in the book, Appendix. Models used as illustrative examples: description and R code
 ################################################################################
 #' @title The Verhulst (logistic) model - calculate change for one day
+#' @description The Verhulst (logistic) model - calculate change for one day
 #' @param Y : state variable Y(t=day)
 #' @param a : growth rate
 #' @param k : capacity
@@ -25,6 +26,7 @@ verhulst.update<-function(Y,a,k)
 
 ################################################################################
 #' @title The Verhulst (logistic) model - calculate daily values over designated time period
+#' @description The Verhulst (logistic) model - calculate daily values over designated time period
 #' @param a : growth rate
 #' @param k : capacity
 #' @param Y0 : initial condition

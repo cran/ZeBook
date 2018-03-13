@@ -33,13 +33,13 @@
 #' @param Mi : initial Quantity of milk in animal (kg)
 #' @return matrix with CS,M,Mmoy,RM
 #' @export
-lactation.model.machine=function(cu,kdiv,kdl,kdh,km,ksl,kr,ks,ksm,mh,mm,p,mum,rma,t1,t2,t3,t4,t5,t6,duration,dt,CSi,Mi)
+lactation.machine.model=function(cu,kdiv,kdl,kdh,km,ksl,kr,ks,ksm,mh,mm,p,mum,rma,t1,t2,t3,t4,t5,t6,duration,dt,CSi,Mi)
 {
 
 
  # Initialize variables
  # 6 states variables, as 6 vectors initialized to NA
-     # H : Hormone effector of cell division (kg/m³)
+     # H : Hormone effector of cell division (kg/m3)
 CS=rep(NA,(duration-1)/dt)
     # CS : Number of secretory cells
 H=rep(NA,(duration-1)/dt)
@@ -109,9 +109,9 @@ return(results2)
 #' @param Mi : initial Quantity of milk in animal (kg)
 #' @return data.frame with CS, M, Mmoy, RM, day, week
 #' @export
-lactation.model.machine2=function(param,duration,dt,CSi,Mi)
+lactation.machine.model2=function(param,duration,dt,CSi,Mi)
 {
  # use lactation.model.machine function to run the model
-return(lactation.model.machine(param["cu"],param["kdiv"],param["kdl"],param["kdh"],param["km"],param["ksl"],param["kr"],param["ks"],param["ksm"],param["mh"],param["mm"],param["p"],param["mum"],param["rma"],param["t1"],param["t2"],param["t3"],param["t4"],param["t5"],param["t6"],duration,dt,CSi,Mi))
+return(lactation.machine.model(param["cu"],param["kdiv"],param["kdl"],param["kdh"],param["km"],param["ksl"],param["kr"],param["ks"],param["ksm"],param["mh"],param["mm"],param["p"],param["mum"],param["rma"],param["t1"],param["t2"],param["t3"],param["t4"],param["t5"],param["t6"],duration,dt,CSi,Mi))
 }
 # End of file
