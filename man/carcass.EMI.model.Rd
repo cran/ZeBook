@@ -4,9 +4,9 @@
 \alias{carcass.EMI.model}
 \title{The Carcass (growth of beef cattle) model with energy as input}
 \usage{
-carcass.EMI.model(protcmax, protncmax, alphac, alphanc, gammac, gammanc, lip0,
-  lipc1, lipnc1, beta, delta, amW, b0c, b1c, b0nc, b1nc, c0, c1, energie, PVi,
-  duration)
+carcass.EMI.model(protcmax, protncmax, alphac, alphanc, gammac, gammanc,
+  lip0, lipc1, lipnc1, beta, delta, amW, b0c, b1c, b0nc, b1nc, c0, c1,
+  energie, PVi, duration)
 }
 \arguments{
 \item{protcmax}{: amounts of protein in the carcass of the adult animal (kg)}

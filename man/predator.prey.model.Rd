@@ -4,8 +4,9 @@
 \alias{predator.prey.model}
 \title{The PredatorPrey model (Predator-Prey Lotka-Volterra with logistic equation for prey)}
 \usage{
-predator.prey.model(grH = 1, kH = 10, mrH = 0.2, eff = 0.5, mrA = 0.2,
-  H0 = 1, A0 = 2, duration = 200, dt = 1, method = "euler")
+predator.prey.model(grH = 1, kH = 10, mrH = 0.2, eff = 0.5,
+  mrA = 0.2, H0 = 1, A0 = 2, duration = 200, dt = 1,
+  method = "euler")
 }
 \arguments{
 \item{grH}{: relative rate of prey population growth}

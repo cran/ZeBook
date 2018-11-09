@@ -7,8 +7,9 @@
 Script written from equation described in Zadoks, J.C. 1971. Systems Analysis and the Dynamics of Epidemics. Phytopathology. 61:441-598.
 }
 \usage{
-zakoks.original.model(nlpd = 4 * 10, nipd = 1 * 10, dmfr = 16, SITE0 = 5
-  * 10^9, weather, sdate = 145, ldate = 145 + 50, XLAT0 = 1)
+zakoks.original.model(nlpd = 4 * 10, nipd = 1 * 10, dmfr = 16,
+  SITE0 = 5 * 10^9, weather, sdate = 145, ldate = 145 + 50,
+  XLAT0 = 1)
 }
 \arguments{
 \item{nlpd}{: latent period (in degree.day) - default value for Puccinia triticina : ~10 days at 20degC}

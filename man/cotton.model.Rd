@@ -4,8 +4,8 @@
 \alias{cotton.model}
 \title{The Cotton model (dynamic for numbers of Cotton fruiting points).}
 \usage{
-cotton.model(TESQ, PMAX, AFL, AL, AOP, P1, P2, P3, P4, P5, PF, PSF, TSQ, P, PR,
-  PT, tend)
+cotton.model(TESQ, PMAX, AFL, AL, AOP, P1, P2, P3, P4, P5, PF, PSF, TSQ, P,
+  PR, PT, tend)
 }
 \arguments{
 \item{TESQ}{: TO COMPLETE}

@@ -3,8 +3,8 @@
 #' \tabular{ll}{
 #' Package: \tab ZeBook\cr
 #' Type: \tab Package\cr
-#' Version: \tab 1.0\cr
-#' Date: \tab 2018-03-13\cr
+#' Version: \tab 1.1\cr
+#' Date: \tab 2018-11-08\cr
 #' License: \tab LGPL-3 \cr
 #' LazyLoad: \tab yes\cr
 #' LazyData: \tab yes\cr
@@ -16,7 +16,7 @@
 #' Working with dynamic models for agriculture and environment
 #' (Working with Dynamic Crop Models)
 #'
-#' Linked to book \strong{Working with Dynamic Crop Models} (Elsevier), Third edition, in preparation for April 2018 by Wallach, Makowski, Jones and Brun)
+#' Linked to book \strong{Working with Dynamic Crop Models} (Elsevier), Third edition, 27 septembre 2018 by Wallach, Makowski, Jones and Brun. \url{http://www.modelia.org/moodle/course/view.php?id=61}
 #'
 #' A full description of the models is in the book in appendix of the book.
 #'

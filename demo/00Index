@@ -31,3 +31,4 @@ ch14maizeS8DataAssimilation           ch14. Data Assimilation on case study Maiz
 ch14DLM_WheatYieldGreece              ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) for analyzing yield time series.
 ch14DLM_CarbonSoil                    ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) with carbonsoil.model.
 ch14DLM_watbal                        ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) with watbal.model.
+ch11MetaModelling                     ch11. Metamodeling. Final Biomass meta-models of Maize Model

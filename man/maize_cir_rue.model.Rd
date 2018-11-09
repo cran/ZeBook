@@ -4,8 +4,8 @@
 \alias{maize_cir_rue.model}
 \title{The Maize model with temperature dependent RUE and CumInt}
 \usage{
-maize_cir_rue.model(Tbase, RUE_max, K, alpha, LAImax, TTM, TTL, weather, sdate,
-  ldate)
+maize_cir_rue.model(Tbase, RUE_max, K, alpha, LAImax, TTM, TTL, weather,
+  sdate, ldate)
 }
 \arguments{
 \item{Tbase}{:    parameter the baseline temperature for growth (degreeCelsius)}

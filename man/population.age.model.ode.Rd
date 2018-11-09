@@ -4,10 +4,10 @@
 \alias{population.age.model.ode}
 \title{The PopulationAge model (Population Dynamics with Age Classes) - ode form}
 \usage{
-population.age.model.ode(rb = 3.5, mE = 0.017, rE = 0.172, m1 = 0.06,
-  r12 = 0.217, m2 = 0.032, r23 = 0.313, m3 = 0.022, r34 = 0.222,
-  m4 = 0.02, r4P = 0.135, mP = 0.02, rPA = 0.099, mA = 0.027,
-  iA = 0, duration = 100, dt = 1, method = "euler")
+population.age.model.ode(rb = 3.5, mE = 0.017, rE = 0.172,
+  m1 = 0.06, r12 = 0.217, m2 = 0.032, r23 = 0.313, m3 = 0.022,
+  r34 = 0.222, m4 = 0.02, r4P = 0.135, mP = 0.02, rPA = 0.099,
+  mA = 0.027, iA = 0, duration = 100, dt = 1, method = "euler")
 }
 \arguments{
 \item{rb}{: eggs laid per adult per unit area (day-1)}

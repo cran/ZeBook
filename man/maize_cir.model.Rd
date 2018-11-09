@@ -4,7 +4,8 @@
 \alias{maize_cir.model}
 \title{The Maize model with additional state variable CumInt}
 \usage{
-maize_cir.model(Tbase, RUE, K, alpha, LAImax, TTM, TTL, weather, sdate, ldate)
+maize_cir.model(Tbase, RUE, K, alpha, LAImax, TTM, TTL, weather, sdate,
+  ldate)
 }
 \arguments{
 \item{Tbase}{:    parameter the baseline temperature for growth (degreeCelsius)}

@@ -4,8 +4,8 @@
 \alias{lactation.machine.model}
 \title{The Lactation model with milking machine}
 \usage{
-lactation.machine.model(cu, kdiv, kdl, kdh, km, ksl, kr, ks, ksm, mh, mm, p,
-  mum, rma, t1, t2, t3, t4, t5, t6, duration, dt, CSi, Mi)
+lactation.machine.model(cu, kdiv, kdl, kdh, km, ksl, kr, ks, ksm, mh, mm,
+  p, mum, rma, t1, t2, t3, t4, t5, t6, duration, dt, CSi, Mi)
 }
 \arguments{
 \item{cu}{: number of undifferentiated cells}

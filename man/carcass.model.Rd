@@ -5,7 +5,8 @@
 \title{The Carcass (growth of beef cattle) model}
 \usage{
 carcass.model(protcmax, protncmax, alphac, alphanc, gammac, gammanc, lip0,
-  lipc1, lipnc1, beta, delta, k, b0c, b1c, b0nc, b1nc, c0, c1, cem, duration)
+  lipc1, lipnc1, beta, delta, k, b0c, b1c, b0nc, b1nc, c0, c1, cem,
+  duration)
 }
 \arguments{
 \item{protcmax}{: amounts of protein in the carcass of the adult animal (kg)}
