@@ -4,12 +4,14 @@
 \name{weather_GNS}
 \alias{weather_GNS}
 \title{Weather series for Gainesville (FL, USA) years 1982 and 1983}
-\format{a \code{RangedData} instance, 1 row per day.}
+\format{
+a \code{RangedData} instance, 1 row per day.
+}
 \source{
 University of Florida
 }
 \usage{
-weather_GNS
+data(weather_GNS)
 }
 \description{
 This  daily climate dataset for Gainesville (FL, USA) years 1982 and 1983

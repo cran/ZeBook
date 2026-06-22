@@ -8,13 +8,14 @@
 ################################ FUNCTIONS #####################################
 #' @title The Epirice model (Disease model for rice)
 #' @description \strong{Model description.} Adapted from Savary et al.(2012)
-#' @param param : a vector of parameters
-#' @param weather : weather data.frame for one single year
-#' @param sdate : date to begin simulation (day of year) (default 1)
-#' @param ldate : date to end simulation (day of year) (default 120)
-#' @param H0 : initial number of plant's healthy sites(default 600)
+#' @param param a vector of parameters
+#' @param weather weather data.frame for one single year
+#' @param sdate date to begin simulation (day of year) (default 1)
+#' @param ldate date to end simulation (day of year) (default 120)
+#' @param H0 initial number of plant's healthy sites(default 600)
 #' @return data.frame with daily state variable
 #' @seealso \code{\link{epirice.multi.simule}}
+#' @importFrom stats approx
 #' @export
 epirice.model<-function(param, weather,sdate=1,ldate=120, H0=600)
 {
@@ -117,9 +118,9 @@ fRcW<-function(RH,RAIN){if(RH>=90 | RAIN>=5) {return(1)} else {return(0)}   }
 ################################################################################
 #' @title Wrapper function to run Epirice multiple times (for multiple sets of inputs)
 #' @description Wrapper function for epirice.model
-#' @param param : a vector of parameters
-#' @param multi.simule : matrix of n row definition of input variable : site, year and date of transplantation.
-#' @param all : if you want a matrix combining multi.simule and output (default = FALSE)
+#' @param param a vector of parameters
+#' @param multi.simule matrix of n row definition of input variable : site, year and date of transplantation.
+#' @param all if you want a matrix combining multi.simule and output (default = FALSE)
 #' @return matrix with AUDPC for each input vector
 #' @seealso \code{\link{epirice.model}}
 #' @export
@@ -161,13 +162,13 @@ return(as.matrix(param))
 ################################################################################
 #' @title Read weather data for Epirice (southern Asia weather)
 #' @description Read weather data and format them for epirice.model
-#' @param working.year : year for the subset of weather data (default=NA : all the year)
-#' @param working.site : site for the subset of weather data (default=NA : all the site)
-#' @param weather : weather table
+#' @param working.year year for the subset of weather data (default=NA : all the year)
+#' @param working.site site for the subset of weather data (default=NA : all the site)
+#' @param weather weather table
 #' @return data.frame with daily weather data for one or several site(s) and for one or several year(s)
 #' @export
 # Reading Weather data function
-epirice.weather=function(working.year=NA, working.site=NA,weather=weather_SouthAsia)
+epirice.weather=function(working.year=NA, working.site=NA,weather=NA)
     {
     #day month year R Tmax Tmin rain ETP
     # idsite","GPSlatitude","GPSlongitude","WEYR","WEDAY","TMAX","TMIN","RAIN","RH2M"

@@ -4,8 +4,24 @@
 \alias{lactation.calf.model}
 \title{The Lactation model}
 \usage{
-lactation.calf.model(cu, kdiv, kdl, kdh, km, ksl, kr, ks, ksm, mh, mm, p,
-  mum, rc, duration, dt)
+lactation.calf.model(
+  cu,
+  kdiv,
+  kdl,
+  kdh,
+  km,
+  ksl,
+  kr,
+  ks,
+  ksm,
+  mh,
+  mm,
+  p,
+  mum,
+  rc,
+  duration,
+  dt
+)
 }
 \arguments{
 \item{cu}{: number of undifferentiated cells}

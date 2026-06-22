@@ -7,11 +7,11 @@
 goodness.of.fit(Yobs, Ypred, draw.plot = FALSE)
 }
 \arguments{
-\item{Yobs}{: observed values}
+\item{Yobs}{observed values}
 
-\item{Ypred}{: prediction values from the model}
+\item{Ypred}{prediction values from the model}
 
-\item{draw.plot}{: draw evaluation plot}
+\item{draw.plot}{draw evaluation plot}
 }
 \value{
 data.frame with the different evaluation criteria

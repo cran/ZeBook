@@ -7,15 +7,15 @@
 mm.HI.fct(day, daysilking, HImax, d1 = 0.015, d2 = 3)
 }
 \arguments{
-\item{day}{: day of the year}
+\item{day}{day of the year}
 
-\item{daysilking}{: day of the year for silking (day)}
+\item{daysilking}{day of the year for silking (day)}
 
-\item{HImax}{: maximum harvest index - genetic potential (-)}
+\item{HImax}{maximum harvest index - genetic potential (-)}
 
-\item{d1}{: coefficient of the statistical relation (day-1, default : 0.015)}
+\item{d1}{coefficient of the statistical relation (day-1, default : 0.015)}
 
-\item{d2}{: coefficient of the statistical relation (day, default : 3)}
+\item{d2}{coefficient of the statistical relation (day, default : 3)}
 }
 \value{
 Harvest index

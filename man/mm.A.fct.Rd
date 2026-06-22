@@ -7,15 +7,15 @@
 mm.A.fct(LN, AM, LNM, a1 = -0.0344, a2 = 0.000731)
 }
 \arguments{
-\item{LN}{: Leaf number}
+\item{LN}{Leaf number}
 
-\item{AM}{: area of the largest leaf (cm2)}
+\item{AM}{area of the largest leaf (cm2)}
 
-\item{LNM}{: leaf number having the largest area (-)}
+\item{LNM}{leaf number having the largest area (-)}
 
-\item{a1}{: coefficient of the statistical relation (default : -0.0344)}
+\item{a1}{coefficient of the statistical relation (default : -0.0344)}
 
-\item{a2}{: coefficient of the statistical relation (default : 0.000731)}
+\item{a2}{coefficient of the statistical relation (default : 0.000731)}
 }
 \value{
 vector of Expanded leaf area

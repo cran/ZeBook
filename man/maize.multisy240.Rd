@@ -4,19 +4,18 @@
 \alias{maize.multisy240}
 \title{Wrapper function to run Maize model for multiple sets of input variables (site-year) and give Biomass at day240.}
 \usage{
-maize.multisy240(param, liste_sy, sdate, ldate,
-  weather_all = weather_EuropeEU)
+maize.multisy240(param, liste_sy, sdate, ldate, weather_all = NA)
 }
 \arguments{
-\item{param}{: a vector of parameters}
+\item{param}{a vector of parameters}
 
-\item{liste_sy}{: vector of site-year}
+\item{liste_sy}{vector of site-year}
 
-\item{sdate}{: sowing date}
+\item{sdate}{sowing date}
 
-\item{ldate}{: last date}
+\item{ldate}{last date}
 
-\item{weather_all}{: weather data table used}
+\item{weather_all}{weather data table used}
 }
 \value{
 mean biomass at day=240
@@ -25,5 +24,6 @@ mean biomass at day=240
 Wrapper function to run Maize model for multiple sets of input variables (site-year) and give Biomass at day240.
 }
 \examples{
-maize.multisy240(maize.define.param()["nominal",],c("18-2006","64-2004") , sdate=100, ldate=250)
+maize.multisy240(maize.define.param()["nominal",],c("18-2006","64-2004") 
+, sdate=100, ldate=250, weather_all=weather_EuropeEU)
 }

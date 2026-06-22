@@ -18,9 +18,9 @@
 #' model version 4 (GEOS-4), and precipitation from the Global
 #' Precipitation Climate Project and Topical Rainfall Measurement
 #' Mission. A full description can be found at 
-#' \url{https://power.larc.nasa.gov/common/php/POWER_AboutAgroclimatology.php}
+#' \url{https://power.larc.nasa.gov}
 #' @docType data
-#' @usage weather_FranceWest
+#' @usage data(weather_FranceWest)
 #' @format a \code{RangedData} instance, 1 row per day.
-#' @source \url{http://power.larc.nasa.gov/}
+#' @source \url{https://power.larc.nasa.gov/}
 NULL

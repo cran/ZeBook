@@ -4,12 +4,14 @@
 \name{maize.data_MetaModelling}
 \alias{maize.data_MetaModelling}
 \title{dataset of simulation for maize final biomass}
-\format{a \code{RangedData} instance, 1 row per simulation. Site, Year, T1, T2, T3, RAD1, RAD2, RAD3, B}
+\format{
+a \code{RangedData} instance, 1 row per simulation. Site, Year, T1, T2, T3, RAD1, RAD2, RAD3, B
+}
 \source{
 NA
 }
 \usage{
-maize.data_EuropeEU
+data(maize.data_EuropeEU)
 }
 \description{
 Simulation data for several site and year (site-year) in Europe.

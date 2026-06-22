@@ -3,15 +3,17 @@
 \docType{data}
 \name{maize.data_EuropeEU}
 \alias{maize.data_EuropeEU}
-\title{maize biomass and leaf area data}
-\format{a \code{RangedData} instance, 1 row per measurement.}
+\title{Maize Biomass and Leaf Area Data}
+\format{
+A \code{RangedData} instance, 1 row per measurement.
+}
 \source{
 NA
 }
 \usage{
-maize.data_EuropeEU
+data(maize.data_EuropeEU)
 }
 \description{
-"observation data" for several site and year (site-year) in Europe.
-This data are fake observed date, derived from simulations with an error model.
+Observation data for several sites and years in Europe.
+This data are fake observed data, derived from simulations with an error model.
 }

@@ -6,10 +6,12 @@
 ################################ FUNCTIONS #####################################
 #' @title Calcule multiple goodness-of-fit criteria
 #' @description This function is depreciated and will be remove from the package in future versions. Please use goodness.of.fit
-#' @param Ypred : prediction values from the model
-#' @param Yobs : observed values
-#' @param draw.plot : draw evaluation plot
+#' @param Ypred prediction values from the model
+#' @param Yobs observed values
+#' @param draw.plot draw evaluation plot
 #' @return data.frame with the different evaluation criteria
+#' @importFrom stats var cov
+#' @importFrom graphics abline barplot par
 #' @export
 #' @examples
 #' # observed and simulated values

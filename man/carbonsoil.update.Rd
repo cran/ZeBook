@@ -7,13 +7,13 @@
 carbonsoil.update(Zy, R, b, Uy)
 }
 \arguments{
-\item{Zy}{: Soil carbon content for year}
+\item{Zy}{Soil carbon content for year}
 
-\item{R}{: the fraction of soil carbon content lost per year}
+\item{R}{the fraction of soil carbon content lost per year}
 
-\item{b}{: the fraction of yearly crop biomass production left in the soil}
+\item{b}{the fraction of yearly crop biomass production left in the soil}
 
-\item{Uy}{: the amount of C in crop biomass production in the given year}
+\item{Uy}{the amount of C in crop biomass production in the given year}
 }
 \value{
 Soil carbon content for year+1.

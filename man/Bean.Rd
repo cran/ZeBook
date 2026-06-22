@@ -4,7 +4,9 @@
 \name{Bean}
 \alias{Bean}
 \title{Bean gene-based models dataset}
-\format{a \code{List} including 4 data.frame  Bean$marker, Bean$MET, Bean$QTL, Bean$modelpar.}
+\format{
+a \code{List} including 4 data.frame  Bean$marker, Bean$MET, Bean$QTL, Bean$modelpar.
+}
 \source{
 C. E. Vallejos (personal communication) and Bhakta et al. (2015, 2017).
 Bhakta, M. S., V. A. Jones, C. E. Vallejos. 2015. Punctuated distribution of recombination hotspots and demarcation of pericentromeric regions in Phaseolus vulgaris L.  PLoS ONE 10(1): https://doi.org/10.1371/journal.pone.0116822 

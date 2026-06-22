@@ -4,8 +4,7 @@
 \alias{maize.multisy}
 \title{Wrapping function to run maize model on several site-years}
 \usage{
-maize.multisy(param, list_site_year, sdate, ldate,
-  weather_all = weather_EuropeEU)
+maize.multisy(param, list_site_year, sdate, ldate, weather_all = NA)
 }
 \arguments{
 \item{param}{: a vector of parameters}

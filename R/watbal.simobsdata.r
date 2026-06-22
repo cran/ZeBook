@@ -5,7 +5,7 @@
 #' sonde Diviner 2000 (from Sentek Pty Ltd)
 #' Simulation are from watbal.model, with an initial water content estimated from measurement with Diviner 2000.
 #' @docType data
-#' @usage watbal.simobsdata
+#' @usage data(watbal.simobsdata)
 #' @format a \code{RangedData} instance, 1 row per day :
 #' Weather : day / RAIN / ETr /
 #' simulation :  WAT / WATp / ARID

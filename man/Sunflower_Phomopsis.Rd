@@ -4,7 +4,9 @@
 \name{Sunflower_Phomopsis}
 \alias{Sunflower_Phomopsis}
 \title{Phomopsis stem canker observations for Sunflower}
-\format{a \code{RangedData} instance, 1 row per observation.}
+\format{
+a \code{RangedData} instance, 1 row per observation.
+}
 \source{
 Debaeke, P., & Estragnat, A. (2009). Crop canopy indicators for the early prediction of Phomopsis stem canker (Diaporthe helianthi) in sunflower. Crop Protection, 28(9), 792-801. doi:10.1016/j.cropro.2009.04.011
 }

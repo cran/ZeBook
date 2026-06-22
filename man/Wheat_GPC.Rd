@@ -4,7 +4,9 @@
 \name{Wheat_GPC}
 \alias{Wheat_GPC}
 \title{Grain Protein Contents in Wheat Grains}
-\format{a \code{RangedData} instance, 1 row per plot.}
+\format{
+a \code{RangedData} instance, 1 row per plot.
+}
 \source{
 Barbottin et al. 2008
 }

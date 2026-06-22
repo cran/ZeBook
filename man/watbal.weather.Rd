@@ -4,12 +4,14 @@
 \alias{watbal.weather}
 \title{Read weather data for the WaterBalance model (West of France Weather)}
 \usage{
-watbal.weather(working.year = NA, working.site = NA)
+watbal.weather(working.year = NA, working.site = NA, weather = NA)
 }
 \arguments{
-\item{working.year}{: year for the subset of weather data (default=NA : all the year)}
+\item{working.year}{year for the subset of weather data (default=NA : all the year)}
 
-\item{working.site}{: site for the subset of weather data (default=NA : all the site)}
+\item{working.site}{site for the subset of weather data (default=NA : all the site)}
+
+\item{weather}{weather table with different year and site}
 }
 \value{
 data.frame with daily weather data for one or several site(s) and for one or several year(s)

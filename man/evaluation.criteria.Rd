@@ -7,11 +7,11 @@
 evaluation.criteria(Ypred, Yobs, draw.plot = FALSE)
 }
 \arguments{
-\item{Ypred}{: prediction values from the model}
+\item{Ypred}{prediction values from the model}
 
-\item{Yobs}{: observed values}
+\item{Yobs}{observed values}
 
-\item{draw.plot}{: draw evaluation plot}
+\item{draw.plot}{draw evaluation plot}
 }
 \value{
 data.frame with the different evaluation criteria

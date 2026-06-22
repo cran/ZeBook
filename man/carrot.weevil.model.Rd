@@ -4,9 +4,17 @@
 \alias{carrot.weevil.model}
 \title{Carrot weevil development model}
 \usage{
-carrot.weevil.model(tbase = 7, tteggs = 130, ttlarvae = 256,
-  ttprepupae = 114, ttpupae = 130, ttadultpreovi = 91, weather,
-  sdate = 1, ldate = 360)
+carrot.weevil.model(
+  tbase = 7,
+  tteggs = 130,
+  ttlarvae = 256,
+  ttprepupae = 114,
+  ttpupae = 130,
+  ttadultpreovi = 91,
+  weather,
+  sdate = 1,
+  ldate = 360
+)
 }
 \arguments{
 \item{tbase}{: base temperature}

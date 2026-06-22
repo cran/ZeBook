@@ -7,14 +7,14 @@
 AICf(Yobs, Ypred, npar)
 }
 \arguments{
-\item{Yobs}{: observed values}
+\item{Yobs}{observed values}
 
-\item{Ypred}{: prediction values from the model}
+\item{Ypred}{prediction values from the model}
 
-\item{npar}{: number of parameters (should include variance that count for one supplementary parameter)}
+\item{npar}{number of parameters (should include variance that count for one supplementary parameter)}
 }
 \value{
-a vector with AICcomplete and AICshort
+A vector with `AICcomplete` and `AICshort`.
 }
 \description{
 This function calculate AIC criterion given a vector of observation, a vector of prediction and number of parameter.
@@ -30,4 +30,5 @@ y=c(1.2,1.8,3.5,4.3,5.5)
 fit = lm(y~x)
 AIC(fit)
 AICf(y,predict(fit),3) # 3 parameters : intercept, slope and variance
+
 }

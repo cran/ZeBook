@@ -4,43 +4,57 @@
 \alias{maize.muchow.model}
 \title{Maize model, with harvest index and yield from Muchow et al. (1990)}
 \usage{
-maize.muchow.model(Tbase1 = 8, TTE = 87, TTS = 67, Tbase2 = 0,
-  TTRUE = 500, TTM = 1150, TLN = 20, AM = 596, RUE1 = 1.6,
-  RUE2 = 1.2, K = 0.4, HImax = 0.5, Population = 7, sdate = 100,
-  ldate = 365, weather)
+maize.muchow.model(
+  Tbase1 = 8,
+  TTE = 87,
+  TTS = 67,
+  Tbase2 = 0,
+  TTRUE = 500,
+  TTM = 1150,
+  TLN = 20,
+  AM = 596,
+  RUE1 = 1.6,
+  RUE2 = 1.2,
+  K = 0.4,
+  HImax = 0.5,
+  Population = 7,
+  sdate = 100,
+  ldate = 365,
+  weather
+)
 }
 \arguments{
-\item{Tbase1}{: base temperature before silking(degC)}
+\item{Tbase1}{base temperature before silking(degC)}
 
-\item{TTE}{: Thermal units from sowing to emergence/leaf growth (degC.day)}
+\item{TTE}{Thermal units from sowing to emergence/leaf growth (degC.day)}
 
-\item{TTS}{: Thermal units from end of leaf growth to silking (degC.day)}
+\item{TTS}{Thermal units from end of leaf growth to silking (degC.day)}
 
-\item{Tbase2}{: base temperature after silking (degC)}
+\item{Tbase2}{base temperature after silking (degC)}
 
-\item{TTRUE}{: Thermal units from silking for RUE change (degC.day)}
+\item{TTRUE}{Thermal units from silking for RUE change (degC.day)}
 
-\item{TTM}{: Thermal units from silking to physiological maturity (degC.day)}
+\item{TTM}{Thermal units from silking to physiological maturity (degC.day)}
 
-\item{TLN}{: total number of leaves initiated (-)}
+\item{TLN}{total number of leaves initiated (-)}
 
-\item{AM}{: area of the largest leaf (cm2)}
+\item{AM}{area of the largest leaf (cm2)}
 
-\item{RUE1}{: radiation use efficiency (g.MJ-1) from crop emergence until 500 thermal units (base 0 "C) after silking}
+\item{RUE1}{radiation use efficiency (g.MJ-1) from crop emergence until 500 thermal units (base 0 "C) after silking}
 
-\item{RUE2}{: radiation use efficiency (g.MJ-1) from 500 thermal units (base 0 "C) after silking}
+\item{RUE2}{radiation use efficiency (g.MJ-1) from 500 thermal units (base 0 "C) after silking}
 
-\item{K}{: radiation extinction coefficient (-)}
+\item{K}{radiation extinction coefficient (-)}
 
-\item{HImax}{: maximum harvest index - genetic potential (-)}
+\item{HImax}{maximum harvest index - genetic potential (-)}
 
-\item{Population}{: number of plant per square meter (-)}
+\item{Population}{number of plant per square meter (-)}
 
-\item{sdate}{: sowing date (day)}
+\item{sdate}{sowing date (day)}
 
-\item{ldate}{: end of simulation (day)}
+\item{ldate}{end of simulation (day)}
 
-\item{weather}{: daily weather dataframe}
+\item{weather}{daily weather dataframe}
 }
 \value{
 data.frame with TT1, TT2, STADE, LN, LAI, B, HI, YIELD

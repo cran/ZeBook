@@ -6,11 +6,11 @@
 ##################################################################################
 #' @title Expanded leaf area function for Muchow et al. (1990) Maize model
 #' @description Compute fully expanded area by leaf number (A, cm2)
-#' @param LN : Leaf number
-#' @param AM : area of the largest leaf (cm2)
-#' @param LNM : leaf number having the largest area (-)
-#' @param a1 : coefficient of the statistical relation (default : -0.0344)
-#' @param a2 : coefficient of the statistical relation (default : 0.000731)
+#' @param LN Leaf number
+#' @param AM area of the largest leaf (cm2)
+#' @param LNM leaf number having the largest area (-)
+#' @param a1 coefficient of the statistical relation (default : -0.0344)
+#' @param a2 coefficient of the statistical relation (default : 0.000731)
 #' @return vector of Expanded leaf area
 #' @seealso \code{\link{maize.muchow.model}}, \code{\link{mm.LN.fct}}, \code{\link{mm.FAS.fct}}, \code{\link{maize.multisy}},
 #' \code{\link{mm.HI.fct}},\code{\link{maize.muchow.graph}}
@@ -21,11 +21,11 @@ mm.A.fct = function(LN, AM, LNM,a1=-0.0344,a2=0.000731){AM * exp(a1*(LN-LNM)^2 +
 ##################################################################################
 #' @title Leaf number function for Muchow et al. (1990) Maize model
 #' @description Leaf number as a function of thermal time
-#' @param TT1 : Thermal time from sowing (degC.day)
-#' @param TTE : Thermal units from sowing to emergence/leaf growth (degC.day)
-#' @param b1 : coefficient of the statistical relation (default : 2.5)
-#' @param b2 : coefficient of the statistical relation (default : 0.00225)
-#' @param TLN : total number of leaves initiated (-)
+#' @param TT1 Thermal time from sowing (degC.day)
+#' @param TTE Thermal units from sowing to emergence/leaf growth (degC.day)
+#' @param b1 coefficient of the statistical relation (default : 2.5)
+#' @param b2 coefficient of the statistical relation (default : 0.00225)
+#' @param TLN total number of leaves initiated (-)
 #' @return Leaf number
 #' @seealso \code{\link{maize.muchow.model}}, \code{\link{mm.A.fct}}, \code{\link{mm.FAS.fct}}, \code{\link{maize.multisy}},
 #' \code{\link{mm.HI.fct}},\code{\link{maize.muchow.graph}}
@@ -35,10 +35,10 @@ mm.LN.fct = function(TT1,TTE,b1=2.5,b2=0.00225,TLN=20){pmin(round(b1*exp((TT1-TT
 ##################################################################################
 #' @title Senescence function for Muchow et al. (1990) Maize model
 #' @description Senesced fraction of total leaf area (FAS) increase with thermal units (TU) from emergence
-#' @param TT : Thermal time (degC.day)
-#' @param TTE : Thermal units from sowing to emergence/leaf growth (degC.day)
-#' @param c1 : coefficient of the statistical relation (default : 0.00161)
-#' @param c2 : coefficient of the statistical relation (default : 0.00328)
+#' @param TT Thermal time (degC.day)
+#' @param TTE Thermal units from sowing to emergence/leaf growth (degC.day)
+#' @param c1 coefficient of the statistical relation (default : 0.00161)
+#' @param c2 coefficient of the statistical relation (default : 0.00328)
 #' @return Senesced fraction of total leaf area
 #' @seealso \code{\link{maize.muchow.model}}, \code{\link{mm.A.fct}}, \code{\link{mm.LN.fct}}, \code{\link{maize.multisy}},
 #' \code{\link{mm.HI.fct}},\code{\link{maize.muchow.graph}}
@@ -48,11 +48,11 @@ mm.FAS.fct = function(TT,TTE,c1=0.00161,c2=0.00328){pmin(c1*exp(c2*(TT-TTE)),1)}
 ##################################################################################
 #' @title Harvest index function for Muchow et al. (1990) Maize model
 #' @description Compute the harvest index.
-#' @param day : day of the year
-#' @param daysilking : day of the year for silking (day)
-#' @param HImax : maximum harvest index - genetic potential (-)
-#' @param d1 : coefficient of the statistical relation (day-1, default : 0.015)
-#' @param d2 : coefficient of the statistical relation (day, default : 3)
+#' @param day day of the year
+#' @param daysilking day of the year for silking (day)
+#' @param HImax maximum harvest index - genetic potential (-)
+#' @param d1 coefficient of the statistical relation (day-1, default : 0.015)
+#' @param d2 coefficient of the statistical relation (day, default : 3)
 #' @return Harvest index
 #' @seealso \code{\link{maize.muchow.model}}, \code{\link{mm.A.fct}}, \code{\link{mm.LN.fct}}, \code{\link{maize.multisy}},
 #' \code{\link{mm.FAS.fct}},\code{\link{maize.muchow.graph}}
@@ -64,22 +64,22 @@ mm.HI.fct = function(day,daysilking, HImax,d1=0.015,d2=3){pmin(HImax, pmax(0, d1
 #' @description Maize model, with harvest index and yield.
 #' from Muchow RC, Sinclair TR, and Bennett JM (1990). Temperature and Solar Radiation
 #' Effects on Potential Maize Yield across Locations AGRONOMY JOURNAL, VOL. 82, MARCH-APRIL 1990
-#' @param Tbase1 : base temperature before silking(degC)
-#' @param TTE : Thermal units from sowing to emergence/leaf growth (degC.day)
-#' @param TTS : Thermal units from end of leaf growth to silking (degC.day)
-#' @param Tbase2 : base temperature after silking (degC)
-#' @param TTRUE : Thermal units from silking for RUE change (degC.day)
-#' @param TTM : Thermal units from silking to physiological maturity (degC.day)
-#' @param TLN : total number of leaves initiated (-)
-#' @param AM : area of the largest leaf (cm2)
-#' @param RUE1 : radiation use efficiency (g.MJ-1) from crop emergence until 500 thermal units (base 0 "C) after silking
-#' @param RUE2 : radiation use efficiency (g.MJ-1) from 500 thermal units (base 0 "C) after silking
-#' @param K : radiation extinction coefficient (-)
-#' @param HImax : maximum harvest index - genetic potential (-)
-#' @param Population : number of plant per square meter (-)
-#' @param sdate : sowing date (day)
-#' @param ldate : end of simulation (day)
-#' @param weather : daily weather dataframe
+#' @param Tbase1 base temperature before silking(degC)
+#' @param TTE Thermal units from sowing to emergence/leaf growth (degC.day)
+#' @param TTS Thermal units from end of leaf growth to silking (degC.day)
+#' @param Tbase2 base temperature after silking (degC)
+#' @param TTRUE Thermal units from silking for RUE change (degC.day)
+#' @param TTM Thermal units from silking to physiological maturity (degC.day)
+#' @param TLN total number of leaves initiated (-)
+#' @param AM area of the largest leaf (cm2)
+#' @param RUE1 radiation use efficiency (g.MJ-1) from crop emergence until 500 thermal units (base 0 "C) after silking
+#' @param RUE2 radiation use efficiency (g.MJ-1) from 500 thermal units (base 0 "C) after silking
+#' @param K radiation extinction coefficient (-)
+#' @param HImax maximum harvest index - genetic potential (-)
+#' @param Population number of plant per square meter (-)
+#' @param sdate sowing date (day)
+#' @param ldate end of simulation (day)
+#' @param weather daily weather dataframe
 #' @return data.frame with TT1, TT2, STADE, LN, LAI, B, HI, YIELD
 #' @seealso \code{\link{mm.A.fct}}, \code{\link{mm.LN.fct}}, \code{\link{mm.FAS.fct}}, \code{\link{maize.multisy}},
 #' \code{\link{mm.HI.fct}},\code{\link{maize.muchow.graph}}
@@ -177,9 +177,10 @@ weather) {
 #################################################################################
 #' @title Plot dynamic output of Muchow Maize model.
 #' @description Plot 6 graphs of main output variables of the Muchow Maize model.
-#' @param res : list of result from maize.muchow.model
+#' @param res list of result from maize.muchow.model
 #' @seealso \code{\link{mm.A.fct}}, \code{\link{mm.LN.fct}}, \code{\link{mm.FAS.fct}}, \code{\link{maize.multisy}},
 #' \code{\link{mm.HI.fct}},\code{\link{maize.muchow.model}}
+#' @importFrom graphics par barplot lines legend
 #' @export
 #' @examples
 #' # not run in package test

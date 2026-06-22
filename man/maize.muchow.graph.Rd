@@ -7,7 +7,7 @@
 maize.muchow.graph(res)
 }
 \arguments{
-\item{res}{: list of result from maize.muchow.model}
+\item{res}{list of result from maize.muchow.model}
 }
 \description{
 Plot 6 graphs of main output variables of the Muchow Maize model.

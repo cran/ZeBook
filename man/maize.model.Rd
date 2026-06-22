@@ -7,25 +7,25 @@
 maize.model(Tbase, RUE, K, alpha, LAImax, TTM, TTL, weather, sdate, ldate)
 }
 \arguments{
-\item{Tbase}{:    parameter the baseline temperature for growth (degreeCelsius)}
+\item{Tbase}{parameter the baseline temperature for growth (degreeCelsius)}
 
-\item{RUE}{: parameter radiation use efficiency (?)}
+\item{RUE}{parameter radiation use efficiency (?)}
 
-\item{K}{: parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)}
+\item{K}{parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)}
 
-\item{alpha}{: parameter the relative rate of leaf area index increase for small values of leaf area index (?)}
+\item{alpha}{parameter the relative rate of leaf area index increase for small values of leaf area index (?)}
 
-\item{LAImax}{: parameter maximum leaf area index (-)}
+\item{LAImax}{parameter maximum leaf area index (-)}
 
-\item{TTM}{:    parameter temperature sum for crop maturity (degreeC.day)}
+\item{TTM}{parameter temperature sum for crop maturity (degreeC.day)}
 
-\item{TTL}{:    parameter temperature sum at the end of leaf area increase (degreeC.day)}
+\item{TTL}{parameter temperature sum at the end of leaf area increase (degreeC.day)}
 
-\item{weather}{: weather data.frame for one single year}
+\item{weather}{weather data.frame for one single year}
 
-\item{sdate}{: sowing date}
+\item{sdate}{sowing date}
 
-\item{ldate}{: last date}
+\item{ldate}{last date}
 }
 \value{
 data.frame with daily TT, LAI,B

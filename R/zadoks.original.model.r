@@ -119,6 +119,7 @@ zakoks.original.model = function (nlpd=4*10,nipd=1*10,dmfr=16,SITE0 = 5*10^9,wea
 #' @param param : if param (default), add the values of param on the plot
 #' @return plot
 #' @seealso \code{\link{zakoks.original.model}}
+#' @importFrom graphics text plot.default axis mtext
 #' @export
 graph_epid_s=function(out,typel="s",all=TRUE, param=TRUE){
 # a tip to show value=0 on the log plot
@@ -153,6 +154,7 @@ return(invisible(out))
 #' @param param : if param (default), add the values of param on the plot
 #' @return plot
 #' @seealso \code{\link{zakoks.original.model}}
+#' @importFrom graphics axis text
 #' @export
 graph_epid=function(out,typel="s",all=TRUE, param=TRUE){
 # a tip to show value=0 on the log plot

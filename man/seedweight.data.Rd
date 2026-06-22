@@ -4,7 +4,9 @@
 \name{seedweight.data}
 \alias{seedweight.data}
 \title{Wheat grain weight measurements after anthesis}
-\format{a \code{RangedData} instance, 1 row per measurement. DD = Degree Days after anthesis; seedweight = Wheat grain weight (mg)}
+\format{
+a \code{RangedData} instance, 1 row per measurement. DD = Degree Days after anthesis; seedweight = Wheat grain weight (mg)
+}
 \source{
 Darroch, B A, and R J Baker. 1990. "Grain filling in three spring wheat genotypes: statistical analysis." Crop Science 30(3):525-529.
 }

@@ -4,15 +4,14 @@
 \alias{epirice.weather}
 \title{Read weather data for Epirice (southern Asia weather)}
 \usage{
-epirice.weather(working.year = NA, working.site = NA,
-  weather = weather_SouthAsia)
+epirice.weather(working.year = NA, working.site = NA, weather = NA)
 }
 \arguments{
-\item{working.year}{: year for the subset of weather data (default=NA : all the year)}
+\item{working.year}{year for the subset of weather data (default=NA : all the year)}
 
-\item{working.site}{: site for the subset of weather data (default=NA : all the site)}
+\item{working.site}{site for the subset of weather data (default=NA : all the site)}
 
-\item{weather}{: weather table}
+\item{weather}{weather table}
 }
 \value{
 data.frame with daily weather data for one or several site(s) and for one or several year(s)

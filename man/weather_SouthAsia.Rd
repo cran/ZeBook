@@ -4,12 +4,14 @@
 \name{weather_SouthAsia}
 \alias{weather_SouthAsia}
 \title{Weather series for southern Asia from NASA POWER agroclimatology}
-\format{a \code{RangedData} instance, 1 row per day.}
+\format{
+a \code{RangedData} instance, 1 row per day.
+}
 \source{
-\url{http://power.larc.nasa.gov/} and \url{http://asterweb.jpl.nasa.gov/gdem.asp} and \url{http://www.geonames.org/about.html}
+\url{https://power.larc.nasa.gov/} and \url{https://asterweb.jpl.nasa.gov/gdem.asp} and \url{https://www.geonames.org/about.html}
 }
 \usage{
-weather_SouthAsia
+data(weather_SouthAsia)
 }
 \description{
 This contemporary daily climate dataset for South Asia
@@ -29,10 +31,10 @@ data from the Goddard Earth Observing System global assimilation
 model version 4 (GEOS-4), and precipitation from the Global
 Precipitation Climate Project and Topical Rainfall Measurement
 Mission. A full description can be found at 
-\url{https://power.larc.nasa.gov/common/php/POWER_AboutAgroclimatology.php}
+\url{https://power.larc.nasa.gov/}
 Elevation (Altitude) were retrive from Aster Global Digital Elevation Model
 by using the Webservice api.geonames.org/astergdem?
 Sample are: ca 30m x 30m, between 83N and 65S latitude.
 Result : a single number giving the elevation in meters according to aster gdem, ocean areas have been masked as "no data" and have been assigned a value of -9999
-Example http://api.geonames.org/astergdem?lat=50.01&lng=10.2&username=demo
+Example https://api.geonames.org/astergdem?lat=50.01&lng=10.2&username=demo
 }

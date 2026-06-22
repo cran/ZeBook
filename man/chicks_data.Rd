@@ -4,7 +4,9 @@
 \name{chicks_data}
 \alias{chicks_data}
 \title{Data of growth of chicks}
-\format{a \code{RangedData} instance, 1 row : strain ; id_animal ; time (day) ; liveweight (g).}
+\format{
+a \code{RangedData} instance, 1 row : strain ; id_animal ; time (day) ; liveweight (g).
+}
 \source{
 Duval M., Robert-Granie C., Foulley J.-L. (2009) Estimation of heterogeneous variances in non linear mixed models via the SAEM algorithm with applications to growth curves in poultry. Journal de la Societe Francaise de Statistique, 150,65-83
 

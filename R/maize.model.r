@@ -20,16 +20,16 @@
 #' \cr \eqn{dB(day) = 0,\ if\  TT(day)>TTM}{dB(day) = 0, if TT(day)>TTM}
 #' \cr (6) \eqn{dLAI(day) = alpha*dTT(day)*LAI(day)*\max(LAImax-LAI(day);0),\ if \ TT(day)\le TTL }{alpha*dTT(day)*LAI(day)*max(LAImax-LAI(day);0), if TT(day)<= TTL }
 #' \cr \eqn{dLAI(day) = 0,\ if\  TT(day)>TTL }{dLAI(day) = 0 if TT(day)>TTL}
-#' @param Tbase :	parameter the baseline temperature for growth (degreeCelsius)
-#' @param TTM	:	parameter temperature sum for crop maturity (degreeC.day)
-#' @param TTL	:	parameter temperature sum at the end of leaf area increase (degreeC.day)
-#' @param K : parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
-#' @param RUE : parameter radiation use efficiency (?)
-#' @param alpha : parameter the relative rate of leaf area index increase for small values of leaf area index (?)
-#' @param LAImax : parameter maximum leaf area index (-)
-#' @param weather : weather data.frame for one single year
-#' @param sdate : sowing date
-#' @param ldate : last date
+#' @param Tbase parameter the baseline temperature for growth (degreeCelsius)
+#' @param TTM parameter temperature sum for crop maturity (degreeC.day)
+#' @param TTL parameter temperature sum at the end of leaf area increase (degreeC.day)
+#' @param K parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
+#' @param RUE parameter radiation use efficiency (?)
+#' @param alpha parameter the relative rate of leaf area index increase for small values of leaf area index (?)
+#' @param LAImax parameter maximum leaf area index (-)
+#' @param weather weather data.frame for one single year
+#' @param sdate sowing date
+#' @param ldate last date
 #' @return data.frame with daily TT, LAI,B
 #' @seealso \code{\link{maize.model2}}, \code{\link{maize.define.param}}, \code{\link{maize.simule}}, \code{\link{maize.multisy}},
 #' \code{\link{maize.simule240}},\code{\link{maize.simule_multisy240}}
@@ -149,7 +149,7 @@ return(as.matrix(Y))
 #' @param weather_all : weather data.frame for corresponding site-years
 #' @return a data.frame with simulation for all site-years, with the first column sy indicating the site-years
 #' @export
-maize.multisy<-function(param, list_site_year, sdate,ldate, weather_all=weather_EuropeEU){
+maize.multisy<-function(param, list_site_year, sdate,ldate, weather_all=NA){
   sim <- data.frame()
   for(sy in list_site_year){
     weather = maize.weather(working.year=strsplit(sy,"-")[[1]][2], working.site=strsplit(sy,"-")[[1]][1],weather_all=weather_all)
@@ -180,47 +180,49 @@ return(as.matrix(Y))}
 ################################################################################
 #' @title Wrapper function to run Maize model for multiple sets of input variables (site-year) and give Biomass at day240.
 #' @description Wrapper function to run Maize model for multiple sets of input variables (site-year) and give Biomass at day240.
-#' @param param : a vector of parameters
-#' @param liste_sy : vector of site-year
-#' @param sdate : sowing date
-#' @param ldate : last date
-#' @param weather_all : weather data table used
+#' @param param a vector of parameters
+#' @param liste_sy vector of site-year
+#' @param sdate sowing date
+#' @param ldate last date
+#' @param weather_all weather data table used
 #' @return mean biomass at day=240
 #' @export
-#' @examples maize.multisy240(maize.define.param()["nominal",],c("18-2006","64-2004") , sdate=100, ldate=250)
-maize.multisy240<-function(param,liste_sy, sdate, ldate, weather_all=weather_EuropeEU){
+#' @examples maize.multisy240(maize.define.param()["nominal",],c("18-2006","64-2004") 
+#' , sdate=100, ldate=250, weather_all=weather_EuropeEU)
+maize.multisy240<-function(param,liste_sy, sdate, ldate, weather_all=NA){
 Y <- sapply(liste_sy,function(sy) maize.model2(param,maize.weather(working.year=strsplit(sy,"-")[[1]][2], working.site=strsplit(sy,"-")[[1]][1],weather_all=weather_all),sdate,ldate)[240-sdate+1,"B"])
 return(mean(as.matrix(Y)))}
 ################################################################################
 #' @title Wrapper function to run Maize model for multiple sets of parameter values (virtual design) and multiple sets of input variables (site-year) and give Biomass at day240
 #' @description Wrapper function to run Maize model for multiple sets of input variables (site-year) and give Biomass at day240.
-#' @param X : matrix of n row vectors of 7 parameters
-#' @param liste_sy : vector of site-year
-#' @param sdate : sowing date
-#' @param ldate : last date
-#' @param all : if you want a matrix combining X and output (default = FALSE)
+#' @param X matrix of n row vectors of 7 parameters
+#' @param liste_sy vector of site-year
+#' @param sdate sowing date
+#' @param ldate last date
+#' @param weather_all Weather data base
+#' @param all if you want a matrix combining X and output (default = FALSE)
 #' @return a matrix of mean biomass at day=240 for all combinations of parameters of X
 #' @export
 #' @examples maize.simule_multisy240(maize.define.param(),c("18-2006","64-2004"),
-#'   sdate=100, ldate=250, all=FALSE)
-maize.simule_multisy240<-function(X,liste_sy, sdate, ldate, all=FALSE){
-Y <- apply(X,1,function(v) maize.multisy240(v[1:7],liste_sy, sdate, ldate))
+#'   sdate=100, ldate=250,weather_all=weather_EuropeEU,all=FALSE)
+maize.simule_multisy240<-function(X,liste_sy, sdate, ldate, weather_all=NA, all=FALSE){
+Y <- apply(X,1,function(v) maize.multisy240(v[1:7],liste_sy, sdate, ldate, weather_all))
 if(all) Y = cbind(X,B = Y)
 return(as.matrix(Y))
 }
 ################################################################################
 #' @title The Maize model with additional state variable CumInt
 #' @description Variant of the maize model
-#' @param Tbase :	parameter the baseline temperature for growth (degreeCelsius)
-#' @param TTM	:	parameter temperature sum for crop maturity (degreeC.day)
-#' @param TTL	:	parameter temperature sum at the end of leaf area increase (degreeC.day)
-#' @param K : parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
-#' @param RUE : parameter radiation use efficiency (?)
-#' @param alpha : parameter the relative rate of leaf area index increase for small values of leaf area index (?)
-#' @param LAImax : parameter maximum leaf area index (-)
-#' @param  weather : weather data.frame for one single year
-#' @param sdate : sowing date
-#' @param ldate : last date
+#' @param Tbase parameter the baseline temperature for growth (degreeCelsius)
+#' @param TTM parameter temperature sum for crop maturity (degreeC.day)
+#' @param TTL parameter temperature sum at the end of leaf area increase (degreeC.day)
+#' @param K parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
+#' @param RUE parameter radiation use efficiency (?)
+#' @param alpha parameter the relative rate of leaf area index increase for small values of leaf area index (?)
+#' @param LAImax parameter maximum leaf area index (-)
+#' @param  weather weather data.frame for one single year
+#' @param sdate sowing date
+#' @param ldate last date
 #' @return data.frame with daily TT, LAI,B
 #' @export
 maize_cir.model<-function(Tbase,RUE,K,alpha,LAImax,TTM,TTL,weather,sdate,ldate)
@@ -282,16 +284,16 @@ maize.RUEtemp <- function(T, RUE_max,T0,T1,T2,T3)
 ###############################################################################
 #' @title The Maize model with temperature dependent RUE and CumInt
 #' @description Variant of the maize.model
-#' @param Tbase :	parameter the baseline temperature for growth (degreeCelsius)
-#' @param TTM	:	parameter temperature sum for crop maturity (degreeC.day)
-#' @param TTL	:	parameter temperature sum at the end of leaf area increase (degreeC.day)
-#' @param K : parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
-#' @param RUE_max : parameter maximum radiation use efficiency (?)
-#' @param alpha : parameter the relative rate of leaf area index increase for small values of leaf area index (?)
-#' @param LAImax : parameter maximum leaf area index (-)
-#' @param weather : weather data.frame for one single year
-#' @param sdate : sowing date
-#' @param ldate : last date
+#' @param Tbase parameter the baseline temperature for growth (degreeCelsius)
+#' @param TTM parameter temperature sum for crop maturity (degreeC.day)
+#' @param TTL parameter temperature sum at the end of leaf area increase (degreeC.day)
+#' @param K parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
+#' @param RUE_max parameter maximum radiation use efficiency (?)
+#' @param alpha parameter the relative rate of leaf area index increase for small values of leaf area index (?)
+#' @param LAImax parameter maximum leaf area index (-)
+#' @param weather weather data.frame for one single year
+#' @param sdate sowing date
+#' @param ldate last date
 #' @return data.frame with daily TT, LAI,B
 #' @export
 maize_cir_rue.model<-function(Tbase,RUE_max,K,alpha,LAImax,TTM,TTL,weather,sdate,ldate)
@@ -335,16 +337,16 @@ maize_cir_rue.model<-function(Tbase,RUE_max,K,alpha,LAImax,TTM,TTL,weather,sdate
 ###############################################################################
 #' @title The Maize model with temperature dependent RUE, CumInt and ear growth
 #' @description Variant of the maize.model
-#' @param Tbase :	parameter the baseline temperature for growth (degreeCelsius)
-#' @param TTM	:	parameter temperature sum for crop maturity (degreeC.day)
-#' @param TTL	:	parameter temperature sum at the end of leaf area increase (degreeC.day)
-#' @param K : parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
-#' @param RUE_max : parameter maximum radiation use efficiency (?)
-#' @param alpha : parameter the relative rate of leaf area index increase for small values of leaf area index (?)
-#' @param LAImax : parameter maximum leaf area index (-)
-#' @param  weather : weather data.frame for one single year
-#' @param sdate : sowing date
-#' @param ldate : last date
+#' @param Tbase parameter the baseline temperature for growth (degreeCelsius)
+#' @param TTM parameter temperature sum for crop maturity (degreeC.day)
+#' @param TTL parameter temperature sum at the end of leaf area increase (degreeC.day)
+#' @param K parameter extinction coefficient (relation between leaf area index and intercepted radiation) (-)
+#' @param RUE_max parameter maximum radiation use efficiency (?)
+#' @param alpha parameter the relative rate of leaf area index increase for small values of leaf area index (?)
+#' @param LAImax parameter maximum leaf area index (-)
+#' @param  weather weather data.frame for one single year
+#' @param sdate sowing date
+#' @param ldate last date
 #' @return data.frame with daily TT, LAI,B
 #' @export
 maize_cir_rue_ear.model<-function(Tbase,RUE_max,K,alpha,LAImax,TTM,TTL,weather,sdate,ldate)
@@ -399,13 +401,13 @@ maize_cir_rue_ear.model<-function(Tbase,RUE_max,K,alpha,LAImax,TTM,TTL,weather,s
 ###############################################################################
 #' @title Read weather data for the Maize model
 #' @description Function to read weather data and format them for maize.model
-#' @param working.year : year for the subset of weather data (default=NA : all the year)
-#' @param working.site : site for the subset of weather data (default=NA : all the site)
-#' @param weather_all : weather data base (default=weather_FranceWest)
+#' @param working.year year for the subset of weather data (default=NA : all the year)
+#' @param working.site site for the subset of weather data (default=NA : all the site)
+#' @param weather_all weather data base (default=weather_FranceWest)
 #' @return data.frame with daily weather data for one or several site(s) and for one or several year(s)
 #' @export
 # Reading Weather data function
-maize.weather <- function(working.year=NA, working.site=NA,weather_all=weather_FranceWest)
+maize.weather <- function(working.year=NA, working.site=NA,weather_all=NA)
     {
     # WEYR => year
     # WEDAY => day

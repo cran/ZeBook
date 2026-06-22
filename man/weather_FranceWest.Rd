@@ -4,12 +4,14 @@
 \name{weather_FranceWest}
 \alias{weather_FranceWest}
 \title{Weather series for western France from NASA POWER agroclimatology}
-\format{a \code{RangedData} instance, 1 row per day.}
+\format{
+a \code{RangedData} instance, 1 row per day.
+}
 \source{
-\url{http://power.larc.nasa.gov/}
+\url{https://power.larc.nasa.gov/}
 }
 \usage{
-weather_FranceWest
+data(weather_FranceWest)
 }
 \description{
 This contemporary daily climate dataset for West of France
@@ -30,5 +32,5 @@ data from the Goddard Earth Observing System global assimilation
 model version 4 (GEOS-4), and precipitation from the Global
 Precipitation Climate Project and Topical Rainfall Measurement
 Mission. A full description can be found at 
-\url{https://power.larc.nasa.gov/common/php/POWER_AboutAgroclimatology.php}
+\url{https://power.larc.nasa.gov}
 }

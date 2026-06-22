@@ -1,18 +1,30 @@
 Package: ZeBook
 Type: Package
 Title: Working with Dynamic Models for Agriculture and Environment
-Version: 1.1
-Date: 2018-11-08
-Author: Francois Brun (ACTA), David Makowski (INRA), Daniel Wallach (INRA), James W. Jones (U.of Florida).
+Version: 1.2
+Authors@R: c(person(given = "Francois",family = "Brun",
+                      role = c("aut", "cre"),email = "francois.brun@acta.asso.fr",
+                      comment = "ACTA"),
+               person(given = "David",family = "Makowski",role = "aut",comment = "INRAE"),
+               person(given = "Daniel",family = "Wallach",
+                      role = "aut",comment = "INRAE"),
+               person(given = "James W.",family = "Jones",role = "aut",comment = "U.of Florida"))
 Maintainer: Francois Brun <francois.brun@acta.asso.fr>
-Description: R package accompanying the book Working with dynamic models for agriculture and environment, by Daniel Wallach (INRA), David Makowski (INRA), James W. Jones (U.of Florida), Francois Brun (ACTA). 3rd edition 2018-09-27.
+Description: R package accompanying the book Working with dynamic models for agriculture and environment, by Daniel Wallach (INRAE), David Makowski (INRAE), James W. Jones (U.of Florida), Francois Brun (ACTA), 2019.
 License: LGPL-3
-LazyData: yes
-Depends: R(>= 2.10.0)
-Imports: triangle, deSolve, stats, graphics
+LazyData: true
+Depends: R (>= 3.0.0)
+Imports: triangle, deSolve
+Suggests:
+        coda,dlm,maps,mgcv,mnormt,mvtnorm,randomForest,rpart,rpart.plot,sensitivity,sp,spatial,tseries
 LazyDataCompression: xz
-RoxygenNote: 6.1.1
+Encoding: UTF-8
+Config/roxygen2/version: 8.0.0
 NeedsCompilation: no
-Packaged: 2018-11-09 17:27:17 UTC; fbrun
+Packaged: 2026-06-22 17:03:05 UTC; Francois.Brun
+Author: Francois Brun [aut, cre] (ACTA),
+  David Makowski [aut] (INRAE),
+  Daniel Wallach [aut] (INRAE),
+  James W. Jones [aut] (U.of Florida)
 Repository: CRAN
-Date/Publication: 2018-11-09 17:40:03 UTC
+Date/Publication: 2026-06-22 17:40:02 UTC

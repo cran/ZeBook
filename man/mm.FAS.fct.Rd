@@ -7,13 +7,13 @@
 mm.FAS.fct(TT, TTE, c1 = 0.00161, c2 = 0.00328)
 }
 \arguments{
-\item{TT}{: Thermal time (degC.day)}
+\item{TT}{Thermal time (degC.day)}
 
-\item{TTE}{: Thermal units from sowing to emergence/leaf growth (degC.day)}
+\item{TTE}{Thermal units from sowing to emergence/leaf growth (degC.day)}
 
-\item{c1}{: coefficient of the statistical relation (default : 0.00161)}
+\item{c1}{coefficient of the statistical relation (default : 0.00161)}
 
-\item{c2}{: coefficient of the statistical relation (default : 0.00328)}
+\item{c2}{coefficient of the statistical relation (default : 0.00328)}
 }
 \value{
 Senesced fraction of total leaf area

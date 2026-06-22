@@ -9,7 +9,7 @@
 #' maximum temperature (Tmax), solar radiation (I), 
 #' photosynthically active radiation (PAR)
 #' @docType data
-#' @usage weather_GNS
+#' @usage data(weather_GNS)
 #' @format a \code{RangedData} instance, 1 row per day.
 #' @source University of Florida
 NULL

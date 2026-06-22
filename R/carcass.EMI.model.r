@@ -11,28 +11,29 @@
 #' This model is proposed by Hoch et. al (2004) to represent the growth of cattle and the relative body composition of diferent types of animals depending on nuritionnal conditions.
 #' It simulates the dynamics of changes in the composition of the body fat and proteins according to nutrient intake. The system is represented by four state variables: the protein and fat in the carcass (resp. ProtC and LIPC) and other tissues (resp. ProtNC and LipNC) grouped under the name of the fifth district (again, gastrointestinal tract, skin .. .). These variables depend on time, the time step used is dt = 1 day.
 #' The model is defined by 20 equations, with a total of 18 parameters for the described process.
-#' @param protcmax : amounts of protein in the carcass of the adult animal (kg)
-#' @param protncmax : amounts of protein in the 5th district of the adult animal (kg)
-#' @param alphac : maximum protein synthesis rate in the frame (excluding basal metabolism) (j-1)
-#' @param alphanc : maximum rate of protein synthesis in the 5th district (except basal metabolism) (j-1)
-#' @param gammac : Maximum rate of protein degradation in the frame (excluding basal metabolism) (j-1)
-#' @param gammanc : maximum rate of protein degradation in the 5th district (except basal metabolism) (j-1)
-#' @param lip0 : maximum lipid concentration to the theoretical physiological age (percent)
-#' @param lipc1 : increase coefficient of the maximum lipid concentration with the physiological age of the carcase (percent)
-#' @param lipnc1 : increase coefficient of the highest lipid concentration with physiological age area in the 5th (percent)
-#' @param beta : lipid synthesis rate (j-1)
-#' @param delta : lipid degradation rate (d-1)
-#' @param amW :
-#' @param b0c : coefficient of the allometric equation linking mass and lipid-protein carcass
-#' @param b1c :  exponent allometric equation linking mass and defatted protein carcass
-#' @param b0nc : coefficient of the allometric equation linking mass and lipid-protein 5th district
-#' @param b1nc : exponent allometric equation linking mass and lipid-protein 5th district
-#' @param c0 : coefficient of the allometric equation between live weight and live weight empty
-#' @param c1 : exponent allometric equation linking body weight and live weight empty
-#' @param energie : Metabolizable energy available
-#' @param PVi : initial liveweight
-#' @param duration : duration of simulation
+#' @param protcmax amounts of protein in the carcass of the adult animal (kg)
+#' @param protncmax amounts of protein in the 5th district of the adult animal (kg)
+#' @param alphac maximum protein synthesis rate in the frame (excluding basal metabolism) (j-1)
+#' @param alphanc maximum rate of protein synthesis in the 5th district (except basal metabolism) (j-1)
+#' @param gammac Maximum rate of protein degradation in the frame (excluding basal metabolism) (j-1)
+#' @param gammanc maximum rate of protein degradation in the 5th district (except basal metabolism) (j-1)
+#' @param lip0 maximum lipid concentration to the theoretical physiological age (percent)
+#' @param lipc1 increase coefficient of the maximum lipid concentration with the physiological age of the carcase (percent)
+#' @param lipnc1 increase coefficient of the highest lipid concentration with physiological age area in the 5th (percent)
+#' @param beta lipid synthesis rate (j-1)
+#' @param delta lipid degradation rate (d-1)
+#' @param amW definition
+#' @param b0c coefficient of the allometric equation linking mass and lipid-protein carcass
+#' @param b1c  exponent allometric equation linking mass and defatted protein carcass
+#' @param b0nc coefficient of the allometric equation linking mass and lipid-protein 5th district
+#' @param b1nc exponent allometric equation linking mass and lipid-protein 5th district
+#' @param c0 coefficient of the allometric equation between live weight and live weight empty
+#' @param c1 exponent allometric equation linking body weight and live weight empty
+#' @param energie Metabolizable energy available
+#' @param PVi initial liveweight
+#' @param duration duration of simulation
 #' @return matrix with ProtC,LipC,ProtNC,LipNC,PV
+#' @importFrom stats approx
 #' @export
 #Function
 carcass.EMI.model <- function(protcmax,protncmax,alphac,alphanc,gammac,gammanc,lip0,lipc1,lipnc1,beta,delta,amW,b0c,b1c,b0nc,b1nc,c0,c1,energie,PVi,duration)

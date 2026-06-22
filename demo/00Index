@@ -4,14 +4,17 @@ ch03Simulation.prey.predator          ch03. Simulation. Predator-Prey Lotka-Volt
 ch03Simulation.population.age         ch03. Simulation. Population dynamics model with a representation of population with age classes.
 ch03Simulation.watbal                 ch03. Simulation. WaterBalance model.
 ch03Simulation.maize                  ch03. Simulation. Maize model.
-ch03Simulation.maize.muchow           ch03. Simulation. Maize model of Muchow with harvest index.
+ch03Simulation.maize.muchow           ch03. Simulation. Maize model - version inspired from Muchow et al. 1990
 ch03Simulation.epirice                ch03. Simulation. Epirice model (up to 10 min).
-ch03Simulation.zadoks                 ch03. Simulation. Zadoks model - SEIR for plant disease.
+ch03Simulation.zadoks                 ch03. Simulation. Zadoks model.
 ch06USA_Magarey                       ch06. Uncertainty and Sensitivity analysis. Example on Magarey model
 ch06USA_Weed                          ch06. Uncertainty and Sensitivity analysis. Example of Monte Carlo, Morris, Fast, Sobol and ANOVA for weed.model. Attention: run time can be long (up to 30 min).
 ch06USA_Lactation                     ch06. Sensitivity analysis. Example on Lactation model.
 ch06USA_Carcass                       ch06. Sensitivity analysis. Example on Carcass model. Morris.
 ch08Bayes_Carbon                      ch08. Bayes. Example with carbonsoil.model
+ch14DLM_WheatYieldGreece              ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) for analyzing yield time series.
+ch14DLM_CarbonSoil                    ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) with carbonsoil.model.
+ch14DLM_watbal                        ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) with watbal.model.
 ch10maize1data                        ch10. Case study. Exploration of data.
 ch10maize2evaluation                  ch10. Case study, Maize model. Evaluation.
 ch10maize3uncertainty                 ch10. Case study, Maize model. Uncertainty analysis (may take up to 20 min).
@@ -27,8 +30,5 @@ ch10maizeB5aBayesEstimRUE             ch10. Case study, Maize model. Parameter e
 ch10maizeB5bBayesEstimAllparam        ch10. Case study, Maize model. Parameter estimation using a Bayesian approach, using MCMC - all parameters (may take up to 4-5 days for 30000 iterations and 2 chains)
 ch10maizeB7BayesUncertainty           ch10. Case study Maize model. Use the posterior distribution for multi-site multi-year simulations. You must run ch10maizeB5bBayesEstimAllparam before this demo in the same session or adapt both scripts may take up to a few hours).
 ch10maizeB7Bayes_functionsMH          ch10. Case study Maize model. Load specific functions for Bayesian approach. No calculation.
-ch14maizeS8DataAssimilation           ch14. Data Assimilation on case study Maize model. Data assimilation using DLM (few minutes)
-ch14DLM_WheatYieldGreece              ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) for analyzing yield time series.
-ch14DLM_CarbonSoil                    ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) with carbonsoil.model.
-ch14DLM_watbal                        ch14. Data Assimilation. Example of Dynamic Linear Model (DLM) with watbal.model.
-ch11MetaModelling                     ch11. Metamodeling. Final Biomass meta-models of Maize Model
+ch14maizeS8DataAssimilation           ch14. Case study Maize model. Data assimilation using DLM (few minutes)
+ch11MetaModelling                     ch11. Meta-Modelling of Maize model

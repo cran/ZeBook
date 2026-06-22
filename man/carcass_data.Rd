@@ -4,7 +4,9 @@
 \name{carcass_data}
 \alias{carcass_data}
 \title{Data of growth of beef cattle for Carcass model}
-\format{a \code{RangedData} instance, 1 row per plot.}
+\format{
+a \code{RangedData} instance, 1 row per plot.
+}
 \source{
 Agabriel, J. (com.pers.)
 }

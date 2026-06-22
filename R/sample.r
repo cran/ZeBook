@@ -11,6 +11,7 @@
 #' @param model.factors : matrix defining minimal (binf) and maximal values (bsup) for a set of p parameters
 #' @param N : size of sample
 #' @return parameter matrix of dim = (N, p)
+#' @importFrom stats runif
 #' @export
 param.runif=function(model.factors,N){ 
   X=data.frame("id"=1:N)
@@ -28,6 +29,7 @@ param.runif=function(model.factors,N){
 #' @param model.factors : matrix defining nominal, minimal (binf), maximal values (bsup) for a set of p parameters
 #' @param N : size of sample
 #' @return parameter matrix of dim = (N, p)
+#' @importFrom triangle rtriangle
 #' @export
 param.rtriangle = function(model.factors,N)
 {

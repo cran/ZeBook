@@ -1,10 +1,10 @@
 #' @name maize.data_EuropeEU
-#' @title maize biomass and leaf area data
+#' @title Maize Biomass and Leaf Area Data
 #' @description
-#' "observation data" for several site and year (site-year) in Europe.
-#' This data are fake observed date, derived from simulations with an error model.
+#' Observation data for several sites and years in Europe.
+#' This data are fake observed data, derived from simulations with an error model.
 #' @docType data
-#' @usage maize.data_EuropeEU
-#' @format a \code{RangedData} instance, 1 row per measurement.
+#' @usage data(maize.data_EuropeEU)
+#' @format A \code{RangedData} instance, 1 row per measurement.
 #' @source NA
 NULL

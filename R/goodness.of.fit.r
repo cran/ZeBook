@@ -6,10 +6,12 @@
 ################################ FUNCTIONS #####################################
 #' @title Calcule multiple goodness-of-fit criteria
 #' @description Calcule multiple goodness-of-fit criteria
-#' @param Ypred : prediction values from the model
-#' @param Yobs : observed values
-#' @param draw.plot : draw evaluation plot
+#' @param Ypred prediction values from the model
+#' @param Yobs observed values
+#' @param draw.plot draw evaluation plot
 #' @return data.frame with the different evaluation criteria
+#' @importFrom stats sd cor cov var
+#' @importFrom graphics par abline barplot
 #' @export
 #' @examples
 #' # observed and simulated values

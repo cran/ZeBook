@@ -108,18 +108,18 @@ watbal.define.param = function()
 ################################################################################
 #' @title Read weather data for the WaterBalance model (West of France Weather)
 #' @description Read weather data for the WaterBalance model (West of France Weather)
-#' @param working.year : year for the subset of weather data (default=NA : all the year)
-#' @param working.site : site for the subset of weather data (default=NA : all the site)
+#' @param working.year year for the subset of weather data (default=NA : all the year)
+#' @param working.site site for the subset of weather data (default=NA : all the site)
+#' @param weather weather table with different year and site
 #' @return data.frame with daily weather data for one or several site(s) and for one or several year(s)
 #' @export
 # Reading Weather data function
-watbal.weather = function(working.year=NA, working.site=NA)
+watbal.weather = function(working.year=NA, working.site=NA, weather=NA)
     {
     #day month year R Tmax Tmin rain ETP
     # R : solar radiation (MJ)
     # Tmax : maximum temperature (degC)
     # Tmin : minimum temperature (degC)
-    weather=weather_FranceWest
     names(weather)[names(weather)=="WEDAY"]= "day"
     names(weather)[names(weather)=="WEYR"]= "year"
     names(weather)[names(weather)=="SRAD"]= "I"

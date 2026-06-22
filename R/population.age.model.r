@@ -4,23 +4,23 @@
 ################################ FUNCTIONS #####################################
 #' @title The PopulationAge model (Population Dynamics with Age Classes)
 #' @description Population Dynamics Model with Age Classes for an insect
-#' @param rb : eggs laid per adult per unit area (day-1)
-#' @param rE : eggs hatch (day-1)
-#' @param r12 : relative rate L1->L2 (day-1)
-#' @param r23 : relative rate L2->L3 (day-1)
-#' @param r34 : relative rate L3->L4 (day-1)
-#' @param r4P : relative rate L4->P (day-1)
-#' @param rPA : relative rate P->A (day-1)
-#' @param mE : relative mortality rate of egg (day-1)
-#' @param m1 : relative mortality rate of larvae L1 (day-1)
-#' @param m2 : relative mortality rate of larvae L2 (day-1)
-#' @param m3 : relative mortality rate of larvae L3 (day-1)
-#' @param m4 : relative mortality rate of larvae L4 (day-1)
-#' @param mP : relative mortality rate of purpae (day-1)
-#' @param mA : relative mortality rate of adult L1 (day-1)
-#' @param iA : input rate of adult (unit.day-1)
-#' @param duration : simulation duration
-#' @param dt : time step for integration
+#' @param rb eggs laid per adult per unit area (day-1)
+#' @param rE eggs hatch (day-1)
+#' @param r12 relative rate L1->L2 (day-1)
+#' @param r23 relative rate L2->L3 (day-1)
+#' @param r34 relative rate L3->L4 (day-1)
+#' @param r4P relative rate L4->P (day-1)
+#' @param rPA relative rate P->A (day-1)
+#' @param mE relative mortality rate of egg (day-1)
+#' @param m1 relative mortality rate of larvae L1 (day-1)
+#' @param m2 relative mortality rate of larvae L2 (day-1)
+#' @param m3 relative mortality rate of larvae L3 (day-1)
+#' @param m4 relative mortality rate of larvae L4 (day-1)
+#' @param mP relative mortality rate of purpae (day-1)
+#' @param mA relative mortality rate of adult L1 (day-1)
+#' @param iA input rate of adult (unit.day-1)
+#' @param duration simulation duration
+#' @param dt time step for integration
 #' @return data.frame with values for state variables for each time step.
 #' @export
 population.age.model = function(rb=3.5,mE=0.017,rE=0.172,m1=0.060,r12=0.217,m2=0.032,r23=0.313,m3=0.022,r34=0.222,m4=0.020,r4P=0.135,mP=0.020,rPA=0.099,mA=0.027,iA=0,duration=100,dt=1){
@@ -123,32 +123,33 @@ population.age.matrix.model = function(rb=3.5,mE=0.017,rE=0.172,m1=0.060,r12=0.2
 #' @description Population Dynamics Model with Age Classes for an insect
 #' Exactly the same model as population.age.model, but written as an ordinary differential equation system (ode) with deSolve package.
 #' 7 states variables
-#' E : egg stage. homogenous population (density) (number per ha)
-#' L1 : larvae1 stage. homogenous population (density) (number per ha)
-#' L2 : larvae2 stage. homogenous population (density) (number per ha)
-#' L3 : larvae3 stage. homogenous population (density) (number per ha)
-#' L4 : larvae4 stage. homogenous population (density) (number per ha)
-#' P : pupae stage. homogenous population (density) (number per ha)
-#' A : adult stage. homogenous population (density) (number per ha)
-#' @param rb : eggs laid per adult per unit area (day-1)
-#' @param rE : eggs hatch (day-1)
-#' @param r12 : relative rate L1->L2 (day-1)
-#' @param r23 : relative rate L2->L3 (day-1)
-#' @param r34 : relative rate L3->L4 (day-1)
-#' @param r4P : relative rate L4->P (day-1)
-#' @param rPA : relative rate P->A (day-1)
-#' @param mE : relative mortality rate of egg (day-1)
-#' @param m1 : relative mortality rate of larvae L1 (day-1)
-#' @param m2 : relative mortality rate of larvae L2 (day-1)
-#' @param m3 : relative mortality rate of larvae L3 (day-1)
-#' @param m4 : relative mortality rate of larvae L4 (day-1)
-#' @param mP : relative mortality rate of purpae (day-1)
-#' @param mA : relative mortality rate of adult L1 (day-1)
-#' @param iA : input rate of adult (unit.day-1)
-#' @param duration : simulation duration
-#' @param dt : time step for integration
-#' @param  method : integration method (euler, rk4,...)
+#' E egg stage. homogenous population (density) (number per ha)
+#' L1 larvae1 stage. homogenous population (density) (number per ha)
+#' L2 larvae2 stage. homogenous population (density) (number per ha)
+#' L3 larvae3 stage. homogenous population (density) (number per ha)
+#' L4 larvae4 stage. homogenous population (density) (number per ha)
+#' P pupae stage. homogenous population (density) (number per ha)
+#' A adult stage. homogenous population (density) (number per ha)
+#' @param rb eggs laid per adult per unit area (day-1)
+#' @param rE eggs hatch (day-1)
+#' @param r12 relative rate L1->L2 (day-1)
+#' @param r23 relative rate L2->L3 (day-1)
+#' @param r34 relative rate L3->L4 (day-1)
+#' @param r4P relative rate L4->P (day-1)
+#' @param rPA relative rate P->A (day-1)
+#' @param mE relative mortality rate of egg (day-1)
+#' @param m1 relative mortality rate of larvae L1 (day-1)
+#' @param m2 relative mortality rate of larvae L2 (day-1)
+#' @param m3 relative mortality rate of larvae L3 (day-1)
+#' @param m4 relative mortality rate of larvae L4 (day-1)
+#' @param mP relative mortality rate of purpae (day-1)
+#' @param mA relative mortality rate of adult L1 (day-1)
+#' @param iA input rate of adult (unit.day-1)
+#' @param duration simulation duration
+#' @param dt time step for integration
+#' @param  method integration method (euler, rk4,...)
 #' @return data.frame with values for state variables for each time step.
+#' @importFrom deSolve ode rkMethod
 #' @export
 population.age.model.ode = function(rb=3.5,mE=0.017,rE=0.172,m1=0.060,r12=0.217,m2=0.032,r23=0.313,m3=0.022,r34=0.222,m4=0.020,r4P=0.135,mP=0.020,rPA=0.099,mA=0.027,iA=0,duration=100, dt=1, method="euler"){
   # states variables

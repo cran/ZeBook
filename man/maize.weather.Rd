@@ -4,15 +4,14 @@
 \alias{maize.weather}
 \title{Read weather data for the Maize model}
 \usage{
-maize.weather(working.year = NA, working.site = NA,
-  weather_all = weather_FranceWest)
+maize.weather(working.year = NA, working.site = NA, weather_all = NA)
 }
 \arguments{
-\item{working.year}{: year for the subset of weather data (default=NA : all the year)}
+\item{working.year}{year for the subset of weather data (default=NA : all the year)}
 
-\item{working.site}{: site for the subset of weather data (default=NA : all the site)}
+\item{working.site}{site for the subset of weather data (default=NA : all the site)}
 
-\item{weather_all}{: weather data base (default=weather_FranceWest)}
+\item{weather_all}{weather data base (default=weather_FranceWest)}
 }
 \value{
 data.frame with daily weather data for one or several site(s) and for one or several year(s)

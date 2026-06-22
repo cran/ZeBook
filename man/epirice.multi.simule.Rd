@@ -7,11 +7,11 @@
 epirice.multi.simule(param, multi.simule, all = FALSE)
 }
 \arguments{
-\item{param}{: a vector of parameters}
+\item{param}{a vector of parameters}
 
-\item{multi.simule}{: matrix of n row definition of input variable : site, year and date of transplantation.}
+\item{multi.simule}{matrix of n row definition of input variable : site, year and date of transplantation.}
 
-\item{all}{: if you want a matrix combining multi.simule and output (default = FALSE)}
+\item{all}{if you want a matrix combining multi.simule and output (default = FALSE)}
 }
 \value{
 matrix with AUDPC for each input vector

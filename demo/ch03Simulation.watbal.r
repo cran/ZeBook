@@ -10,7 +10,7 @@
 library(ZeBook)
 # TODO : change the year of the weather you want (1999 to 2008)
 # TODO : change the site in France (1 to 40)
-weather=watbal.weather(working.year=2007, working.site=1)
+weather=watbal.weather(working.year=2007, working.site=1, weather_FranceWest)
 # Define parameter values of the model function
 watbal.factors = watbal.define.param()
 

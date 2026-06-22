@@ -7,15 +7,15 @@
 mm.LN.fct(TT1, TTE, b1 = 2.5, b2 = 0.00225, TLN = 20)
 }
 \arguments{
-\item{TT1}{: Thermal time from sowing (degC.day)}
+\item{TT1}{Thermal time from sowing (degC.day)}
 
-\item{TTE}{: Thermal units from sowing to emergence/leaf growth (degC.day)}
+\item{TTE}{Thermal units from sowing to emergence/leaf growth (degC.day)}
 
-\item{b1}{: coefficient of the statistical relation (default : 2.5)}
+\item{b1}{coefficient of the statistical relation (default : 2.5)}
 
-\item{b2}{: coefficient of the statistical relation (default : 0.00225)}
+\item{b2}{coefficient of the statistical relation (default : 0.00225)}
 
-\item{TLN}{: total number of leaves initiated (-)}
+\item{TLN}{total number of leaves initiated (-)}
 }
 \value{
 Leaf number
